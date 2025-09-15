@@ -5,7 +5,7 @@
 #include "../Manager/ResourceManager.h"
 #include "../Manager/SceneManager.h"
 #include "../Manager/InputManager.h"
-#include "../Manager/SoundManager.h"
+//#include "../Manager/SoundManager.h"
 
 
 #include "TitleScene.h"
@@ -63,7 +63,7 @@ void TitleScene::Draw(void)
 void TitleScene::Release(void)
 {
 	//SoundManager::GetInstance().Stop(SoundManager::SRC::TITLE_BGM);
-	SoundManager::GetInstance().AllStop();
+	//SoundManager::GetInstance().AllStop();
 }
 
 void TitleScene::DrawLogo(void)

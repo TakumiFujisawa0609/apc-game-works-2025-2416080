@@ -94,10 +94,7 @@ void SceneManager::Draw(void)
 	// ˆÃ“]E–¾“]
 	fader_->Draw();
 
-	if (fader_->GetState() == Fader::STATE::LOADING)
-	{
-		scene_->LoadingDraw();
-	}
+
 
 	// ƒfƒoƒbƒN—p•`‰æ
 #ifdef _DEBUG
@@ -154,8 +151,9 @@ bool SceneManager::IsLoading(void) const
 }
 int SceneManager::LoadCunt(void) const
 {
-	return fader_->GetLoadCut();
+	return fader_->GetLoadCnt();
 }
+
 
 //bool SceneManager::IsLoading(void) const
 //{
@@ -246,7 +244,7 @@ void SceneManager::DoChangeScene(SCENE_ID sceneId)
 	}
 
 	//Init‚Ì•Ï‚í‚è‚ÉAsyncPreLoad
-	scene_->AsyncPreLoad();
+	scene_->Init();
 
 	ResetDeltaTime();
 
@@ -277,21 +275,6 @@ void SceneManager::Fade(void)
 			DoChangeScene(waitSceneId_);
 			// ˆÃ“]‚©‚ç  ‚Ö
 			fader_->SetFade(Fader::STATE::LOADING);
-		}
-		break;
-	case Fader::STATE::LOADING:
-		// ˆÃ“]’†
-
-		//ƒV[ƒ“‚ª‚·‚×‚Ä“Ç‚Ýž‚ß‚½‚©Šm”F
-		if (scene_->IsLoad())
-		{
-
-			//‰Šú‰»
-			scene_->Init();
-
-			// ˆÃ“]‚©‚ç–¾“]‚Ö
-			fader_->SetFade(Fader::STATE::FADE_IN);
-
 		}
 		break;
 	}

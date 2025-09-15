@@ -13,7 +13,9 @@ public:
 	{
 		NONE,
 		FADE_OUT,	// 徐々に暗転
-		FADE_IN		// 徐々に明転
+		FADE_IN	,	// 徐々に明転
+		LOADING,
+
 	};
 
 	// 状態の取得
@@ -29,6 +31,8 @@ public:
 	void Update(void);
 	void Draw(void);
 
+	const int& GetLoadCnt(void) const { return loadCnt_; }
+
 private:
 
 	// 状態
@@ -36,6 +40,10 @@ private:
 
 	// 透明度
 	float alpha_;
+
+	// ローディング変数
+	int loadCnt_;
+	float loadTime_;
 
 	// 状態(STATE)を保ったまま終了判定を行うため、
 	// Update->Draw->Updateの1フレーム判定用

@@ -1,10 +1,12 @@
 #pragma once
 #include<string>
 #include<DxLib.h>
+#include<map>
 
 
 class Sound
 {
+
 public:
 
 	// サウンドタイプ

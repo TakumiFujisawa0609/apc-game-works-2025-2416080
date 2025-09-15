@@ -135,10 +135,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Scene\ResultScene.h" />
     <ClInclude Include="src\Scene\GameScene.h" />
     <ClInclude Include="src\Scene\SelectScene.h" />
-    <ClInclude Include="src\Manager\SoundManager.h" />
-    <ClInclude Include="src\Manager\Sound.h" />
     <ClInclude Include="src\Manager\Resource.h" />
     <ClInclude Include="src\Manager\ResourceManager.h" />
     <ClInclude Include="src\Scene\SceneBase.h" />
@@ -148,15 +147,13 @@
     <ClInclude Include="src\Common\Quaternion.h" />
     <ClInclude Include="src\Utility\AsoUtility.h" />
     <ClInclude Include="src\Application.h" />
-    <ClInclude Include="src\main.h" />
     <ClInclude Include="src\Common\Vector2.h" />
     <ClInclude Include="src\Scene\TitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Scene\ResultScene.cpp" />
     <ClCompile Include="src\Scene\GameScene.cpp" />
     <ClCompile Include="src\Scene\SelectScene.cpp" />
-    <ClCompile Include="src\Manager\SoundManager.cpp" />
-    <ClCompile Include="src\Manager\Sound.cpp" />
     <ClCompile Include="src\Manager\Resource.cpp" />
     <ClCompile Include="src\Manager\ResourceManager.cpp" />
     <ClCompile Include="src\Scene\SceneBase.cpp" />
@@ -169,6 +166,9 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Common\Vector2.cpp" />
     <ClCompile Include="src\Scene\TitleScene.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\ryusi\OneDrive\ドキュメント\AGS2025_Summer_18\One Shot\Data\Image\Title.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

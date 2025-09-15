@@ -28,10 +28,10 @@ void SelectScene::Init(void)
 void SelectScene::Update(void)
 {
 	//ロードが完了したか判断
-	if (GetASyncLoadNum() != 0 || SceneManager::GetInstance().IsLoading())
-	{
-		return;
-	}
+	//if (GetASyncLoadNum() != 0 || SceneManager::GetInstance().IsLoading())
+	//{
+	//	return;
+	//}
 
 	//// シーン遷移
 	InputManager& ins = InputManager::GetInstance();
@@ -53,11 +53,11 @@ void SelectScene::Update(void)
 
 void SelectScene::Draw(void)
 {
-	//ロードが完了したか判断
-	if (GetASyncLoadNum() != 0 || SceneManager::GetInstance().IsLoading())
-	{
-		return;
-	}
+	////ロードが完了したか判断
+	//if (GetASyncLoadNum() != 0 || SceneManager::GetInstance().IsLoading())
+	//{
+	//	return;
+	//}
 
 	DrawGraph(0, 0, ResourceManager::GetInstance().Load(ResourceManager::SRC::SELECT_IMG).handleId_, false);
 	DrawFormatString(0, 40, 0xff0000, "stage=%d", stage_);
