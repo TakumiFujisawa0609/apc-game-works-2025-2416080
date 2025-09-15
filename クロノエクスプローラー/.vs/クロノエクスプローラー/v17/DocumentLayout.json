@@ -3,8 +3,92 @@
   "WorkspaceRootPath": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\GameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\GameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\GameScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\GameScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Utility\\AsoUtility.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Utility\\AsoUtility.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Utility\\AsoUtility.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Utility\\AsoUtility.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Application.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Application.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SelectScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\SelectScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SelectScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\SelectScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\SceneBase.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\SceneBase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\Sound.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Manager\\Sound.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\Sound.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Manager\\Sound.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SoundManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Manager\\SoundManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SoundManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Manager\\SoundManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Manager\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\Resource.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Manager\\Resource.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\Resource.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Manager\\Resource.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\ResourceManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Manager\\ResourceManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\ResourceManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Manager\\ResourceManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\TitleScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\TitleScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\TitleScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\TitleScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Manager\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\InputManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -39,14 +123,6 @@
       "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Common\\Vector2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Utility\\AsoUtility.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Utility\\AsoUtility.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Application.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Application.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -62,7 +138,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,7 +146,293 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AsoUtility.cpp",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Utility\\AsoUtility.cpp",
+              "RelativeDocumentMoniker": "src\\Utility\\AsoUtility.cpp",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Utility\\AsoUtility.cpp",
+              "RelativeToolTip": "src\\Utility\\AsoUtility.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG0BAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T18:26:37.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Application.cpp",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Application.cpp",
+              "RelativeDocumentMoniker": "src\\Application.cpp",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Application.cpp",
+              "RelativeToolTip": "src\\Application.cpp",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAHIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T17:47:16.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AsoUtility.h",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Utility\\AsoUtility.h",
+              "RelativeDocumentMoniker": "src\\Utility\\AsoUtility.h",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Utility\\AsoUtility.h",
+              "RelativeToolTip": "src\\Utility\\AsoUtility.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-15T17:54:11.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameScene.cpp",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\GameScene.cpp",
+              "RelativeDocumentMoniker": "src\\Scene\\GameScene.cpp",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\GameScene.cpp",
+              "RelativeToolTip": "src\\Scene\\GameScene.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T18:25:20.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "GameScene.h",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\GameScene.h",
+              "RelativeDocumentMoniker": "src\\Scene\\GameScene.h",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\GameScene.h",
+              "RelativeToolTip": "src\\Scene\\GameScene.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-15T18:24:58.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Application.h",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Application.h",
+              "RelativeDocumentMoniker": "src\\Application.h",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Application.h",
+              "RelativeToolTip": "src\\Application.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-15T17:45:56.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SelectScene.cpp",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SelectScene.cpp",
+              "RelativeDocumentMoniker": "src\\Scene\\SelectScene.cpp",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SelectScene.cpp",
+              "RelativeToolTip": "src\\Scene\\SelectScene.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T18:23:49.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SelectScene.h",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SelectScene.h",
+              "RelativeDocumentMoniker": "src\\Scene\\SelectScene.h",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SelectScene.h",
+              "RelativeToolTip": "src\\Scene\\SelectScene.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-15T18:23:35.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SoundManager.cpp",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SoundManager.cpp",
+              "RelativeDocumentMoniker": "src\\Manager\\SoundManager.cpp",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SoundManager.cpp",
+              "RelativeToolTip": "src\\Manager\\SoundManager.cpp",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAowJMAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T18:16:07.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Sound.cpp",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\Sound.cpp",
+              "RelativeDocumentMoniker": "src\\Manager\\Sound.cpp",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\Sound.cpp",
+              "RelativeToolTip": "src\\Manager\\Sound.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T18:14:59.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Sound.h",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\Sound.h",
+              "RelativeDocumentMoniker": "src\\Manager\\Sound.h",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\Sound.h",
+              "RelativeToolTip": "src\\Manager\\Sound.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-15T18:14:39.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SceneBase.cpp",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.cpp",
+              "RelativeDocumentMoniker": "src\\Scene\\SceneBase.cpp",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.cpp",
+              "RelativeToolTip": "src\\Scene\\SceneBase.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T18:05:43.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SceneBase.h",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.h",
+              "RelativeDocumentMoniker": "src\\Scene\\SceneBase.h",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.h",
+              "RelativeToolTip": "src\\Scene\\SceneBase.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-15T18:05:12.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SoundManager.h",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SoundManager.h",
+              "RelativeDocumentMoniker": "src\\Manager\\SoundManager.h",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SoundManager.h",
+              "RelativeToolTip": "src\\Manager\\SoundManager.h",
+              "ViewState": "AgIAABYAAAAAAAAAAAAowCkAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-15T18:15:45.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Resource.cpp",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\Resource.cpp",
+              "RelativeDocumentMoniker": "src\\Manager\\Resource.cpp",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\Resource.cpp",
+              "RelativeToolTip": "src\\Manager\\Resource.cpp",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAowIsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T18:13:49.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Resource.h",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\Resource.h",
+              "RelativeDocumentMoniker": "src\\Manager\\Resource.h",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\Resource.h",
+              "RelativeToolTip": "src\\Manager\\Resource.h",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowDsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-15T18:13:36.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ResourceManager.cpp",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\ResourceManager.cpp",
+              "RelativeDocumentMoniker": "src\\Manager\\ResourceManager.cpp",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\ResourceManager.cpp",
+              "RelativeToolTip": "src\\Manager\\ResourceManager.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T18:13:08.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SceneManager.cpp",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.cpp",
+              "RelativeDocumentMoniker": "src\\Manager\\SceneManager.cpp",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.cpp",
+              "RelativeToolTip": "src\\Manager\\SceneManager.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T18:06:28.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ResourceManager.h",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\ResourceManager.h",
+              "RelativeDocumentMoniker": "src\\Manager\\ResourceManager.h",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\ResourceManager.h",
+              "RelativeToolTip": "src\\Manager\\ResourceManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-15T18:12:36.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TitleScene.cpp",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\TitleScene.cpp",
+              "RelativeDocumentMoniker": "src\\Scene\\TitleScene.cpp",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\TitleScene.cpp",
+              "RelativeToolTip": "src\\Scene\\TitleScene.cpp",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T18:09:07.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TitleScene.h",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\TitleScene.h",
+              "RelativeDocumentMoniker": "src\\Scene\\TitleScene.h",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\TitleScene.h",
+              "RelativeToolTip": "src\\Scene\\TitleScene.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-15T18:08:38.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SceneManager.h",
+              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.h",
+              "RelativeDocumentMoniker": "src\\Manager\\SceneManager.h",
+              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.h",
+              "RelativeToolTip": "src\\Manager\\SceneManager.h",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAG4AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-15T18:04:20.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "InputManager.cpp",
               "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\InputManager.cpp",
               "RelativeDocumentMoniker": "src\\Manager\\InputManager.cpp",
@@ -78,12 +440,11 @@
               "RelativeToolTip": "src\\Manager\\InputManager.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGwBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-15T17:58:51.528Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T17:58:51.528Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 23,
               "Title": "InputManager.h",
               "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\InputManager.h",
               "RelativeDocumentMoniker": "src\\Manager\\InputManager.h",
@@ -91,12 +452,11 @@
               "RelativeToolTip": "src\\Manager\\InputManager.h",
               "ViewState": "AgIAAJgAAAAAAAAAAAAowMQAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-15T17:58:33.975Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T17:58:33.975Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 24,
               "Title": "Fader.cpp",
               "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Fader.cpp",
               "RelativeDocumentMoniker": "src\\Common\\Fader.cpp",
@@ -104,12 +464,11 @@
               "RelativeToolTip": "src\\Common\\Fader.cpp",
               "ViewState": "AgIAADYAAAAAAAAAAAAowGUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-15T17:58:01.187Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T17:58:01.187Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 25,
               "Title": "Fader.h",
               "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Fader.h",
               "RelativeDocumentMoniker": "src\\Common\\Fader.h",
@@ -117,25 +476,11 @@
               "RelativeToolTip": "src\\Common\\Fader.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAowC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-15T17:57:49Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T17:57:49Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Application.cpp",
-              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Application.cpp",
-              "RelativeDocumentMoniker": "src\\Application.cpp",
-              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Application.cpp",
-              "RelativeToolTip": "src\\Application.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-15T17:47:16.834Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 26,
               "Title": "Quaternion.cpp",
               "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Quaternion.cpp",
               "RelativeDocumentMoniker": "src\\Common\\Quaternion.cpp",
@@ -143,12 +488,11 @@
               "RelativeToolTip": "src\\Common\\Quaternion.cpp",
               "ViewState": "AgIAAHsCAAAAAAAAAAAowMUCAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-15T17:57:30.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T17:57:30.704Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 27,
               "Title": "Quaternion.h",
               "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Quaternion.h",
               "RelativeDocumentMoniker": "src\\Common\\Quaternion.h",
@@ -156,12 +500,11 @@
               "RelativeToolTip": "src\\Common\\Quaternion.h",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-15T17:56:04.406Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T17:56:04.406Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 28,
               "Title": "Vector2.cpp",
               "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Vector2.cpp",
               "RelativeDocumentMoniker": "src\\Common\\Vector2.cpp",
@@ -169,12 +512,11 @@
               "RelativeToolTip": "src\\Common\\Vector2.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-15T17:55:17.072Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T17:55:17.072Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 29,
               "Title": "Vector2.h",
               "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Vector2.h",
               "RelativeDocumentMoniker": "src\\Common\\Vector2.h",
@@ -182,38 +524,11 @@
               "RelativeToolTip": "src\\Common\\Vector2.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-15T17:54:59.153Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T17:54:59.153Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AsoUtility.h",
-              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Utility\\AsoUtility.h",
-              "RelativeDocumentMoniker": "src\\Utility\\AsoUtility.h",
-              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Utility\\AsoUtility.h",
-              "RelativeToolTip": "src\\Utility\\AsoUtility.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHYAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-15T17:54:11.786Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Application.h",
-              "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Application.h",
-              "RelativeDocumentMoniker": "src\\Application.h",
-              "ToolTip": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Application.h",
-              "RelativeToolTip": "src\\Application.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-15T17:45:56.022Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 30,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\main.cpp",
               "RelativeDocumentMoniker": "src\\main.cpp",
@@ -221,12 +536,11 @@
               "RelativeToolTip": "src\\main.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-15T17:31:15.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T17:31:15.372Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 31,
               "Title": "main.h",
               "DocumentMoniker": "D:\\Work_Game_2025_2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\main.h",
               "RelativeDocumentMoniker": "src\\main.h",
@@ -234,8 +548,7 @@
               "RelativeToolTip": "src\\main.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-15T17:31:08.963Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T17:31:08.963Z"
             }
           ]
         }
