@@ -1,7 +1,7 @@
 #include <string>
 #include <DxLib.h>
 #include "../Application.h"
-//#include "../Utility/AsoUtility.h"
+#include "../Utility/AsoUtility.h"
 #include "../Manager/ResourceManager.h"
 #include "../Manager/SceneManager.h"
 #include "../Manager/InputManager.h"

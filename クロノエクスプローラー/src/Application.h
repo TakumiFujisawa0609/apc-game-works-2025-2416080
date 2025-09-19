@@ -1,8 +1,6 @@
 #pragma once
 #include <string>
 
-class FrameRate;
-
 class Application
 {
 
@@ -14,16 +12,17 @@ public:
 
 	// データパス関連
 	//-------------------------------------------
+	static const std::string PATH_DATA;
 	static const std::string PATH_IMAGE;
 	static const std::string PATH_MODEL;
 	static const std::string PATH_EFFECT;
-	static const std::string PATH_SOUND;
+	static const std::string PATH_MAP_DATA;
 	//-------------------------------------------
 
-	// 明示的にインステンスを生成する
+	// インスタンスを明示的に生成
 	static void CreateInstance(void);
 
-	// 静的インスタンスの取得
+	// インスタンスの取得
 	static Application& GetInstance(void);
 
 	// 初期化
@@ -41,12 +40,6 @@ public:
 	// 解放成功／失敗の判定
 	bool IsReleaseFail(void) const;
 
-	/// <summary>
-	/// ゲームを終了するか否か
-	/// </summary>
-	/// <param name="flag">ゲーム終了フラグ</param>
-	void SetGameEnd(bool flag);
-
 private:
 
 	// 静的インスタンス
@@ -58,23 +51,14 @@ private:
 	// 解放失敗
 	bool isReleaseFail_;
 
-	// フレームレート制御
-	FrameRate* frameRate_;
-
-	// ゲーム終了フラグ
-	bool isGameEnd_;
-
 	// デフォルトコンストラクタをprivateにして、
 	// 外部から生成できない様にする
 	Application(void);
 
 	// コピーコンストラクタも同様
-	Application(const Application&);
+	Application(const Application& instance) = default;
 
 	// デストラクタも同様
 	~Application(void) = default;
 
-	//Effekseerの初期化
-	void InitEffekseer(void);
 };
-

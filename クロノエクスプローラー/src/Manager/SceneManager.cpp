@@ -3,7 +3,7 @@
 #include <DxLib.h>
 #include "../Scene/TitleScene.h"
 #include "../Scene/GameScene.h"
-#include "../Scene/ResultScene.h"
+//#include "../Scene/ResultScene.h"
 #include "../Scene/SelectScene.h"
 
 #include "../Common/Fader.h"
@@ -236,7 +236,7 @@ void SceneManager::DoChangeScene(SCENE_ID sceneId)
 		scene_ = new GameScene();
 		break;
 	case SCENE_ID::RESULT:
-		scene_ = new ResultScene();
+		//scene_ = new ResultScene();
 		break;
 	case SCENE_ID::SELECT:
 		scene_ = new SelectScene();
