@@ -1,14 +1,8 @@
 #include <chrono>
-#include <thread>
 #include <DxLib.h>
+#include "../Common/Fader.h"
 #include "../Scene/TitleScene.h"
 #include "../Scene/GameScene.h"
-//#include "../Scene/ResultScene.h"
-#include "../Scene/SelectScene.h"
-
-#include "../Common/Fader.h"
-
-#include "ResourceManager.h"
 #include "SceneManager.h"
 
 SceneManager* SceneManager::instance_ = nullptr;
@@ -33,23 +27,43 @@ void SceneManager::Init(void)
 	sceneId_ = SCENE_ID::TITLE;
 	waitSceneId_ = SCENE_ID::NONE;
 
+	// フェード機能の初期化
 	fader_ = new Fader();
 	fader_->Init();
 
-	//ゲームの勝敗等変数の初期化
-	ResetGame();
-
-	scene_ = new TitleScene();
-	scene_->Init();
 
 	isSceneChanging_ = false;
 
 	// デルタタイム
 	preTime_ = std::chrono::system_clock::now();
 
-	isWin_ = RESULT::NONE;
+	// 初期シーンの設定
+	DoChangeScene(SCENE_ID::TITLE);
 
-	stageNum_ = 0;
+}
+
+void SceneManager::Init3D(void)
+{
+	// 背景色設定
+	SetBackgroundColor(0, 139, 139);
+
+	// Zバッファを有効にする
+	SetUseZBuffer3D(true);
+
+	// Zバッファへの書き込みを有効にする
+	SetWriteZBuffer3D(true);
+
+	// バックカリングを有効にする
+	SetUseBackCulling(true);
+
+	// ライトの設定
+	SetUseLighting(true);
+
+	// ライトの設定
+	ChangeLightTypeDir({ 0.5f, -0.5f, 0.5f });
+
+	// 12時で太陽が真上だった時の光の方向
+	//ChangeLightTypeDir({ 0.5f, -1.0f, 0.0f });
 
 }
 
@@ -67,14 +81,19 @@ void SceneManager::Update(void)
 		std::chrono::duration_cast<std::chrono::nanoseconds>(nowTime - preTime_).count() / 1000000000.0);
 	preTime_ = nowTime;
 
+
+	// フェード機能の更新
 	fader_->Update();
 	if (isSceneChanging_)
 	{
+		// フェード状態の切替処理
 		Fade();
 	}
-
-
-	scene_->Update();
+	else
+	{
+		// 各シーンの更新処理
+		scene_->Update();
+	}
 
 }
 
@@ -88,37 +107,35 @@ void SceneManager::Draw(void)
 	// 画面を初期化
 	ClearDrawScreen();
 
-	// 描画
+
+	// 各シーンの描画処理
 	scene_->Draw();
+
 
 	// 暗転・明転
 	fader_->Draw();
-
-
-
-	// デバック用描画
-#ifdef _DEBUG
-	SetFontSize(16);
-	// 非同期読み込みの数を描画
-	DrawFormatString(0, 0, GetColor(255, 255, 255), "非同期読み込みの数 %d", GetASyncLoadNum());
-#endif
 
 }
 
 void SceneManager::Destroy(void)
 {
 
+	// シーンの解放
 	scene_->Release();
 	delete scene_;
 
+	// フェード機能の解放
 	delete fader_;
 
+
+	// インスタンスのメモリ解放
 	delete instance_;
 
 }
 
 void SceneManager::ChangeScene(SCENE_ID nextId)
 {
+
 	// フェード処理が終わってからシーンを変える場合もあるため、
 	// 遷移先シーンをメンバ変数に保持
 	waitSceneId_ = nextId;
@@ -140,51 +157,14 @@ float SceneManager::GetDeltaTime(void) const
 	return deltaTime_;
 }
 
-bool SceneManager::IsLoading(void) const
+Camera* SceneManager::GetCamera(void)
 {
-	if (fader_->GetState() == Fader::STATE::LOADING)
-	{
-		return true;
-	}
-
-	return false;
-}
-int SceneManager::LoadCunt(void) const
-{
-	return fader_->GetLoadCnt();
+	return camera_;
 }
 
-
-//bool SceneManager::IsLoading(void) const
-//{
-//	return (fader_->GetState() == Fader::STATE::LOADING);
-//}
-
-
-void SceneManager::ResetGame(void)
+Player* SceneManager::GetPlayer(void)
 {
-
-	isWin_ = RESULT::NONE;
-}
-
-SceneManager::RESULT SceneManager::GetIsWin(void)
-{
-	return isWin_;
-}
-
-void SceneManager::SetIsWin(RESULT result)
-{
-	isWin_ = result;
-}
-
-int SceneManager::GetStage(void)
-{
-	return stageNum_;
-}
-
-void SceneManager::SetStage(int num)
-{
-	stageNum_ = num;
+	return player_;
 }
 
 
@@ -213,20 +193,16 @@ void SceneManager::ResetDeltaTime(void)
 void SceneManager::DoChangeScene(SCENE_ID sceneId)
 {
 
-	// リソースの解放
-	ResourceManager::GetInstance().Release();
-
 	// シーンを変更する
 	sceneId_ = sceneId;
 
-	//現在のシーンを解放
+	// 現在のシーンを解放
 	if (scene_ != nullptr)
 	{
 		scene_->Release();
 		delete scene_;
 	}
 
-	//受け取ったsceneId_でシーンを変更する
 	switch (sceneId_)
 	{
 	case SCENE_ID::TITLE:
@@ -235,15 +211,9 @@ void SceneManager::DoChangeScene(SCENE_ID sceneId)
 	case SCENE_ID::GAME:
 		scene_ = new GameScene();
 		break;
-	case SCENE_ID::RESULT:
-		//scene_ = new ResultScene();
-		break;
-	case SCENE_ID::SELECT:
-		scene_ = new SelectScene();
-		break;
 	}
 
-	//Initの変わりにAsyncPreLoad
+	// 各シーンの初期化
 	scene_->Init();
 
 	ResetDeltaTime();
@@ -273,8 +243,8 @@ void SceneManager::Fade(void)
 		{
 			// 完全に暗転してからシーン遷移
 			DoChangeScene(waitSceneId_);
-			// 暗転から  へ
-			fader_->SetFade(Fader::STATE::LOADING);
+			// 暗転から明転へ
+			fader_->SetFade(Fader::STATE::FADE_IN);
 		}
 		break;
 	}

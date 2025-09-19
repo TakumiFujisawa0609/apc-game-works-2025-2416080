@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Manager\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Manager\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\SceneBase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\SceneBase.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -21,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Fader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Common\\Fader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Manager\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\ResourceManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -67,10 +79,6 @@
       "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\SelectScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Manager\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SelectScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\SelectScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -79,16 +87,8 @@
       "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\GameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\SceneBase.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\GameScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\GameScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|solutionrelative:src\\Scene\\SceneBase.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D51C2918-7604-4554-A41E-A9CCA53FC5FE}|\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC.vcxproj|C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\ResourceManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -132,63 +132,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Fader.cpp",
-              "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Fader.cpp",
-              "RelativeDocumentMoniker": "src\\Common\\Fader.cpp",
-              "ToolTip": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Fader.cpp",
-              "RelativeToolTip": "src\\Common\\Fader.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE8AAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-15T17:58:01.187Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Fader.h",
-              "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Fader.h",
-              "RelativeDocumentMoniker": "src\\Common\\Fader.h",
-              "ToolTip": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Fader.h",
-              "RelativeToolTip": "src\\Common\\Fader.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-15T17:57:49Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SceneManager.cpp",
-              "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.cpp",
-              "RelativeDocumentMoniker": "src\\Manager\\SceneManager.cpp",
-              "ToolTip": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.cpp",
-              "RelativeToolTip": "src\\Manager\\SceneManager.cpp",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAO4AAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-15T18:06:28.817Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\main.cpp",
-              "RelativeDocumentMoniker": "src\\main.cpp",
-              "ToolTip": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\main.cpp",
-              "RelativeToolTip": "src\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-15T17:31:15.372Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Application.cpp",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Application.cpp",
               "RelativeDocumentMoniker": "src\\Application.cpp",
@@ -201,7 +149,59 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SceneBase.cpp",
+              "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.cpp",
+              "RelativeDocumentMoniker": "src\\Scene\\SceneBase.cpp",
+              "ToolTip": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.cpp",
+              "RelativeToolTip": "src\\Scene\\SceneBase.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T18:05:43.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SceneBase.h",
+              "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.h",
+              "RelativeDocumentMoniker": "src\\Scene\\SceneBase.h",
+              "ToolTip": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.h",
+              "RelativeToolTip": "src\\Scene\\SceneBase.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-15T18:05:12.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SceneManager.cpp",
+              "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.cpp",
+              "RelativeDocumentMoniker": "src\\Manager\\SceneManager.cpp",
+              "ToolTip": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.cpp",
+              "RelativeToolTip": "src\\Manager\\SceneManager.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T18:06:28.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "SceneManager.h",
+              "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.h",
+              "RelativeDocumentMoniker": "src\\Manager\\SceneManager.h",
+              "ToolTip": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.h",
+              "RelativeToolTip": "src\\Manager\\SceneManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-15T18:04:20.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Application.h",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Application.h",
               "RelativeDocumentMoniker": "src\\Application.h",
@@ -215,6 +215,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\main.cpp",
+              "RelativeDocumentMoniker": "src\\main.cpp",
+              "ToolTip": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\main.cpp",
+              "RelativeToolTip": "src\\main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T17:31:15.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Fader.cpp",
+              "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Fader.cpp",
+              "RelativeDocumentMoniker": "src\\Common\\Fader.cpp",
+              "ToolTip": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Fader.cpp",
+              "RelativeToolTip": "src\\Common\\Fader.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE8AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-15T17:58:01.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Fader.h",
+              "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Fader.h",
+              "RelativeDocumentMoniker": "src\\Common\\Fader.h",
+              "ToolTip": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Common\\Fader.h",
+              "RelativeToolTip": "src\\Common\\Fader.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-09-15T17:57:49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "ResourceManager.h",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\ResourceManager.h",
               "RelativeDocumentMoniker": "src\\Manager\\ResourceManager.h",
@@ -227,7 +266,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "InputManager.cpp",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\InputManager.cpp",
               "RelativeDocumentMoniker": "src\\Manager\\InputManager.cpp",
@@ -240,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "InputManager.h",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\InputManager.h",
               "RelativeDocumentMoniker": "src\\Manager\\InputManager.h",
@@ -253,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "TitleScene.h",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\TitleScene.h",
               "RelativeDocumentMoniker": "src\\Scene\\TitleScene.h",
@@ -266,7 +305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "Resource.cpp",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\Resource.cpp",
               "RelativeDocumentMoniker": "src\\Manager\\Resource.cpp",
@@ -279,7 +318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "Resource.h",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\Resource.h",
               "RelativeDocumentMoniker": "src\\Manager\\Resource.h",
@@ -292,7 +331,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "TitleScene.cpp",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\TitleScene.cpp",
               "RelativeDocumentMoniker": "src\\Scene\\TitleScene.cpp",
@@ -305,7 +344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "AsoUtility.cpp",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Utility\\AsoUtility.cpp",
               "RelativeDocumentMoniker": "src\\Utility\\AsoUtility.cpp",
@@ -318,7 +357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "AsoUtility.h",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Utility\\AsoUtility.h",
               "RelativeDocumentMoniker": "src\\Utility\\AsoUtility.h",
@@ -331,19 +370,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "SceneManager.h",
-              "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.h",
-              "RelativeDocumentMoniker": "src\\Manager\\SceneManager.h",
-              "ToolTip": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Manager\\SceneManager.h",
-              "RelativeToolTip": "src\\Manager\\SceneManager.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-15T18:04:20.924Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "SelectScene.cpp",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SelectScene.cpp",
               "RelativeDocumentMoniker": "src\\Scene\\SelectScene.cpp",
@@ -355,7 +382,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "SelectScene.h",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SelectScene.h",
               "RelativeDocumentMoniker": "src\\Scene\\SelectScene.h",
@@ -377,19 +404,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "SceneBase.cpp",
-              "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.cpp",
-              "RelativeDocumentMoniker": "src\\Scene\\SceneBase.cpp",
-              "ToolTip": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.cpp",
-              "RelativeToolTip": "src\\Scene\\SceneBase.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-09-15T18:05:43.522Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "GameScene.cpp",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\GameScene.cpp",
               "RelativeDocumentMoniker": "src\\Scene\\GameScene.cpp",
@@ -435,7 +450,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "GameScene.h",
               "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\GameScene.h",
               "RelativeDocumentMoniker": "src\\Scene\\GameScene.h",
@@ -444,18 +459,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-09-15T18:24:58.978Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "SceneBase.h",
-              "DocumentMoniker": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.h",
-              "RelativeDocumentMoniker": "src\\Scene\\SceneBase.h",
-              "ToolTip": "C:\\Users\\2416080\\Documents\\apc-game-works-2025-2416080\\\u30AF\u30ED\u30CE\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC\\src\\Scene\\SceneBase.h",
-              "RelativeToolTip": "src\\Scene\\SceneBase.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-09-15T18:05:12.483Z"
             },
             {
               "$type": "Document",

@@ -2,6 +2,8 @@
 #include <chrono>
 class SceneBase;
 class Fader;
+class Camera;
+class Player;
 
 class SceneManager
 {
@@ -13,16 +15,7 @@ public:
 	{
 		NONE,
 		TITLE,
-		SELECT,
 		GAME,
-		RESULT
-	};
-
-	enum class RESULT
-	{
-		NONE,
-		WIN,
-		LOSE
 	};
 
 	// インスタンスの生成
@@ -31,9 +24,13 @@ public:
 	// インスタンスの取得
 	static SceneManager& GetInstance(void);
 
+	// 初期化
 	void Init(void);
-	/*void Init3D(void);*/
+
+	// 更新
 	void Update(void);
+
+	// 描画
 	void Draw(void);
 
 	// リソースの破棄
@@ -42,24 +39,17 @@ public:
 	// 状態遷移
 	void ChangeScene(SCENE_ID nextId);
 
-	//ゲームのリセット
-	void ResetGame(void);
-	//クリアしたか確認するための変数
-	RESULT GetIsWin(void);
-	void SetIsWin(RESULT result);
-
-	//ステージを確認する変数
-	int GetStage(void);
-	void SetStage(int num);
-
-	SCENE_ID GetSceneID(void);// シーンIDの取得
+	// シーンIDの取得
+	SCENE_ID GetSceneID(void);
 
 	// デルタタイムの取得
 	float GetDeltaTime(void) const;
 
-	// ロード中か調べる
-	bool IsLoading(void) const;
-	int LoadCunt(void) const;
+	// カメラの取得
+	Camera* GetCamera(void);
+
+	// プレイヤーの取得
+	Player* GetPlayer(void);
 
 private:
 
@@ -72,9 +62,14 @@ private:
 	// フェード
 	Fader* fader_;
 
+	// カメラ
+	Camera* camera_;
+
+	// プレイヤー
+	Player* player_;
+
 	// 各種シーン
 	SceneBase* scene_;
-
 
 	// シーン遷移中判定
 	bool isSceneChanging_;
@@ -83,19 +78,13 @@ private:
 	std::chrono::system_clock::time_point preTime_;
 	float deltaTime_;
 
-
-	//ゲームに使う変数
-	//勝利したか判定する
-	RESULT  isWin_;
-
-	//プレイヤーの今いるステージ
-	int stageNum_;
-
 	// デフォルトコンストラクタをprivateにして、
 	// 外部から生成できない様にする
 	SceneManager(void);
+
 	// コピーコンストラクタも同様
-	SceneManager(const SceneManager&);
+	SceneManager(const SceneManager& instance) = default;
+
 	// デストラクタも同様
 	~SceneManager(void) = default;
 
@@ -108,4 +97,6 @@ private:
 	// フェード
 	void Fade(void);
 
+	// 3Dの初期設定
+	void Init3D(void);
 };
