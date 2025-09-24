@@ -8,6 +8,7 @@
 TitleScene::TitleScene()
 {
     selectNum_ = 0;
+
     titleImg_ = -1;   // 画像は未読み込み状態
 }
 
@@ -27,8 +28,8 @@ void TitleScene::Init(void)
 }
 
 // 更新処理
-// - 入力を受け取ってメニュー選択を操作
-// - 決定キーでシーンを切り替える
+// 入力を受け取ってメニュー選択を操作
+// 決定キーでシーンを切り替える
 void TitleScene::Update(void)
 {
     auto& input = InputManager::GetInstance();
@@ -51,7 +52,7 @@ void TitleScene::Update(void)
         }
         else if (selectNum_ == 1) {
             // オプション → OptionSceneへ遷移
-            //SceneManager::GetInstance().ChangeScene(SceneManager::SCENE_ID::OPTION);
+            SceneManager::GetInstance().ChangeScene(SceneManager::SCENE_ID::OPTION);
         }
         else if (selectNum_ == 2) {
             // 終了 → DxLibを終了
