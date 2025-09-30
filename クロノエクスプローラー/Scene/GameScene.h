@@ -1,6 +1,10 @@
 #pragma once
 #include "../Scene/SceneBase.h"
 #include "../Manager/Camera.h"
+#include "../Object/Stage.h"
+#include "../Object/Player.h"
+#include "../Object/Stage.h"
+
 
 // ゲーム本編のシーン
 // - プレイヤーの操作テスト
@@ -27,4 +31,9 @@ private:
     int stageWidth_;
 
     Camera camera_; // カメラ
+
+    Stage stage_;    // ステージ
+
+	Player player_;  // プレイヤー
+
 };

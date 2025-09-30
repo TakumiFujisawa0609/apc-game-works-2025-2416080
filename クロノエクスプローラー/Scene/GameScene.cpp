@@ -32,6 +32,9 @@ void GameScene::Init(void)
 
     camera_.Init(stageWidth_);
 
+    stage_.Init();
+
+    player_.Init();  // プレイヤー初期化
 }
 
 // 更新処理
@@ -50,13 +53,15 @@ void GameScene::Update(void)
     if (playerX_ < 0) playerX_ = 0;
     if (playerX_ > stageWidth_ - 32) playerX_ = stageWidth_ - 32;
 
+    player_.Update(stage_);
     // カメラを更新
-    camera_.Update(playerX_);
+    camera_.Update(player_.GetX());
 
-    // ESCキーでタイトルへ戻る
-    if (input.IsTrgDown(KEY_INPUT_ESCAPE)) {
-        SceneManager::GetInstance().ChangeScene(SceneManager::SCENE_ID::TITLE);
+    if (input.IsNew(KEY_INPUT_TAB)) {
+        SceneManager::GetInstance().ChangeScene(SceneManager::SCENE_ID::PAUSE);
     }
+
+
 }
 
 // 描画処理
@@ -78,15 +83,12 @@ void GameScene::Draw(void)
         DrawBox(0, 0, Application::SCREEN_SIZE_X, Application::SCREEN_SIZE_Y, GetColor(0, 0, 255), TRUE);
     }
 
-    // プレイヤー描画（カメラ補正）
-    if (playerImg_ != -1) {
-        DrawGraph(playerX_ - camera_.GetX(), playerY_, playerImg_, TRUE);
-    }
-    else {
-        DrawBox(playerX_ - camera_.GetX(), playerY_,
-            playerX_ - camera_.GetX() + 32, playerY_ + 32,
-            GetColor(0, 255, 0), TRUE);
-    }
+    
+	// ステージ描画
+	stage_.Draw(camera_);
+
+    player_.Draw(camera_); // プレイヤー描画
+
 }
 
 // 解放処理
