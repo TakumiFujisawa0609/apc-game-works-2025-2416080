@@ -1,5 +1,6 @@
 #pragma once
 #include "../Scene/SceneBase.h"
+#include "../Manager/Camera.h"
 
 // ゲーム本編のシーン
 // - プレイヤーの操作テスト
@@ -20,4 +21,10 @@ private:
     int playerX_;   // プレイヤーのX座標
     int playerY_;   // プレイヤーのY座標
     int playerImg_; // プレイヤーの画像ハンドル
+    
+	int bgImg_;     // 背景画像のハンドル
+
+    int stageWidth_;
+
+	Camera camera_; // カメラ
 };

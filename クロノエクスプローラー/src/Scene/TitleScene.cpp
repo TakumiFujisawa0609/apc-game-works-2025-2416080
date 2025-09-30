@@ -2,7 +2,7 @@
 #include <DxLib.h>
 #include "../Manager/InputManager.h"
 #include "../Manager/SceneManager.h"
-#include "../Application.h"   // Application::PATH_IMAGE を利用するため
+#include "../Application.h"
 
 // コンストラクタ
 TitleScene::TitleScene()
@@ -44,8 +44,8 @@ void TitleScene::Update(void)
         selectNum_ = (selectNum_ + 1) % 3;      // 2→0にループするように
     }
 
-    // Enterキーで決定
-    if (input.IsTrgDown(KEY_INPUT_RETURN)) {
+    // Spaceキーで決定
+    if (input.IsTrgDown(KEY_INPUT_SPACE)) {
         if (selectNum_ == 0) {
             // ゲーム開始 → GameSceneへ遷移
             SceneManager::GetInstance().ChangeScene(SceneManager::SCENE_ID::GAME);
