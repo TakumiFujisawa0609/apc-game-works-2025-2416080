@@ -132,6 +132,11 @@ bool InputManager::IsTrgDown(int key) const
 	return Find(key).keyTrgDown;
 }
 
+bool InputManager::IsPress(int key) const
+{
+	return Find(key).keyNew && Find(key).keyOld;
+}
+
 bool InputManager::IsTrgUp(int key) const
 {
 	return Find(key).keyTrgUp;

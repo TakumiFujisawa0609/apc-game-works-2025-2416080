@@ -17,7 +17,7 @@ Camera::Camera()
     : cameraX_(0),
     targetX_(0),
     stageWidth_(0),
-    followRate_(DEFAULT_FOLLOW_RATE) // ’è”‰»
+    followRate_(DEFAULT_FOLLOW_RATE) 
 {
 }
 
@@ -30,7 +30,7 @@ void Camera::Init(int stageWidth)
     stageWidth_ = stageWidth;
     cameraX_ = 0;
     targetX_ = 0;
-    followRate_ = DEFAULT_FOLLOW_RATE; // Ä‰Šú‰»‚à’è”g—p
+    followRate_ = DEFAULT_FOLLOW_RATE; 
 }
 
 void Camera::Update(int playerX)

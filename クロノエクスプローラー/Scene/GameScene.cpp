@@ -5,12 +5,12 @@
 #include "../Application.h"
 
 GameScene::GameScene()
+    : playerX_(0),
+    playerY_(0),
+    playerImg_(-1),
+    bgImg_(-1),
+    stageWidth_(STAGE_WIDTH)
 {
-    playerX_ = 0;
-    playerY_ = 0;
-    playerImg_ = -1;
-    bgImg_ = -1;
-    stageWidth_ = 3000; // ステージの横幅
 }
 
 GameScene::~GameScene()
@@ -18,81 +18,81 @@ GameScene::~GameScene()
     Release();
 }
 
-// 初期化処理
-// - プレイヤー画像を読み込み
-// - プレイヤーの初期位置をセット
 void GameScene::Init(void)
 {
+    // プレイヤー画像読み込み
     playerImg_ = LoadGraph((Application::PATH_IMAGE + "player.png").c_str());
 
+    // 背景画像読み込み
     bgImg_ = LoadGraph((Application::PATH_IMAGE + "game_bg.png").c_str());
 
-    playerX_ = Application::SCREEN_SIZE_X / 2;
-    playerY_ = Application::SCREEN_SIZE_Y / 2;
+    // プレイヤー初期位置
+    playerX_ = PLAYER_INIT_X;
+    playerY_ = PLAYER_INIT_Y;
 
+    // カメラ初期化
     camera_.Init(stageWidth_);
 
+    // ステージ初期化
     stage_.Init();
 
-    player_.Init();  // プレイヤー初期化
+    // プレイヤー初期化
+    player_.Init();
 }
 
-// 更新処理
-// - 入力を受け取ってプレイヤーを動かす
-// - ESCでタイトルへ戻る
 void GameScene::Update(void)
 {
     auto& input = InputManager::GetInstance();
 
-    if (input.IsNew(KEY_INPUT_D)) playerX_ += 5;
-    if (input.IsNew(KEY_INPUT_A))  playerX_ -= 5;
-    if (input.IsNew(KEY_INPUT_W))    playerY_ -= 5;
-    if (input.IsNew(KEY_INPUT_S))  playerY_ += 5;
+    // 移動（仮：個別に座標更新）
+    if (input.IsNew(KEY_INPUT_D)) playerX_ += MOVE_SPEED;
+    if (input.IsNew(KEY_INPUT_A)) playerX_ -= MOVE_SPEED;
+    if (input.IsNew(KEY_INPUT_W)) playerY_ -= MOVE_SPEED;
+    if (input.IsNew(KEY_INPUT_S)) playerY_ += MOVE_SPEED;
 
     // ステージ範囲チェック
     if (playerX_ < 0) playerX_ = 0;
-    if (playerX_ > stageWidth_ - 32) playerX_ = stageWidth_ - 32;
+    if (playerX_ > stageWidth_ - PLAYER_SIZE) playerX_ = stageWidth_ - PLAYER_SIZE;
 
+    // プレイヤー更新（当たり判定など内部処理）
     player_.Update(stage_);
-    // カメラを更新
+
+    // カメラ更新（プレイヤーX座標に追従）
     camera_.Update(player_.GetX());
 
+    // TAB → ポーズシーンへ
     if (input.IsNew(KEY_INPUT_TAB)) {
         SceneManager::GetInstance().ChangeScene(SceneManager::SCENE_ID::PAUSE);
     }
-
-
 }
 
-// 描画処理
-// - プレイヤー画像を表示
 void GameScene::Draw(void)
 {
+    // 背景描画
     if (bgImg_ != -1) {
         int bgW, bgH;
         GetGraphSize(bgImg_, &bgW, &bgH);
 
-        // 背景をタイル状に並べて描画（横スクロール対応）
+        // 横スクロール対応のタイル描画
         int startX = -(camera_.GetX() % bgW);
         for (int x = startX; x < Application::SCREEN_SIZE_X; x += bgW) {
             DrawGraph(x, 0, bgImg_, TRUE);
         }
     }
     else {
-        // 画像がない場合は四角で代用
-        DrawBox(0, 0, Application::SCREEN_SIZE_X, Application::SCREEN_SIZE_Y, GetColor(0, 0, 255), TRUE);
+        // 背景画像がない場合は青で塗る
+        DrawBox(0, 0,
+            Application::SCREEN_SIZE_X, Application::SCREEN_SIZE_Y,
+            GetColor(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B), TRUE);
     }
 
-    
-	// ステージ描画
-	stage_.Draw(camera_);
+    // ステージ描画
+    stage_.Draw(camera_);
 
-    player_.Draw(camera_); // プレイヤー描画
-
+    // プレイヤー描画
+    player_.Draw(camera_);
 }
 
-// 解放処理
-// - 読み込んだ画像を削除
 void GameScene::Release(void)
 {
     if (playerImg_ != -1) {

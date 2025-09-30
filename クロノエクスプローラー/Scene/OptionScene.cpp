@@ -6,9 +6,9 @@
 #include <algorithm>
 
 OptionScene::OptionScene()
+    : selectNum_(0),
+    bgmVolume_(50) // デフォルト音量
 {
-    selectNum_ = 0;
-    bgmVolume_ = 50; // デフォルト音量
 }
 
 OptionScene::~OptionScene()
@@ -27,22 +27,22 @@ void OptionScene::Update(void)
 
     // 上下でメニュー移動
     if (input.IsTrgDown(KEY_INPUT_UP)) {
-        selectNum_ = (selectNum_ - 1 + 3) % 3;
+        selectNum_ = (selectNum_ - 1 + MENU_COUNT) % MENU_COUNT;
     }
     if (input.IsTrgDown(KEY_INPUT_DOWN)) {
-        selectNum_ = (selectNum_ + 1) % 3;
+        selectNum_ = (selectNum_ + 1) % MENU_COUNT;
     }
 
     // 左右キーで音量調整（選択が音量のときだけ）
     if (selectNum_ == 0) {
         if (input.IsNew(KEY_INPUT_LEFT)) {
-            bgmVolume_ = std::max(0, bgmVolume_ - 5);
+            bgmVolume_ = std::max(VOLUME_MIN, bgmVolume_ - VOLUME_STEP);
         }
         if (input.IsNew(KEY_INPUT_RIGHT)) {
-            bgmVolume_ = std::min(100, bgmVolume_ + 5);
+            bgmVolume_ = std::min(VOLUME_MAX, bgmVolume_ + VOLUME_STEP);
         }
         // DxLib の BGM 音量調整に反映
-        ChangeVolumeSoundMem(bgmVolume_ * 255 / 100, 1);
+        ChangeVolumeSoundMem(bgmVolume_ * 255 / VOLUME_MAX, 1);
     }
 
     // Spaceキーで決定
@@ -56,19 +56,32 @@ void OptionScene::Update(void)
 
 void OptionScene::Draw(void)
 {
-    DrawString(200, 100, "OPTION", GetColor(255, 255, 0));
+    // タイトル表示
+    DrawString(TITLE_X, TITLE_Y, "OPTION",
+        GetColor(COLOR_TITLE_R, COLOR_TITLE_G, COLOR_TITLE_B));
 
     // メニュー項目
-    const char* menuStr[] = { "BGM VOLUME", "CONTROL INFO", "RETURN TO TITLE" };
+    const char* menuStr[MENU_COUNT] = { "BGM VOLUME", "CONTROL INFO", "RETURN TO TITLE" };
 
-    for (int i = 0; i < 3; i++) {
-        int color = (i == selectNum_) ? GetColor(255, 0, 0) : GetColor(255, 255, 255);
-        DrawString(250, 200 + i * 40, menuStr[i], color);
+    for (int i = 0; i < MENU_COUNT; i++) {
+        int color = (i == selectNum_)
+            ? GetColor(COLOR_SELECT_R, COLOR_SELECT_G, COLOR_SELECT_B)
+            : GetColor(COLOR_NORMAL_R, COLOR_NORMAL_G, COLOR_NORMAL_B);
 
-        // 音量バーの表示
+        DrawString(MENU_X, MENU_Y_START + i * MENU_Y_STEP, menuStr[i], color);
+
+        // 音量バーの表示（BGM VOLUME のときだけ）
         if (i == 0) {
-            DrawBox(450, 200, 650, 220, GetColor(100, 100, 100), TRUE);
-            DrawBox(450, 200, 450 + (bgmVolume_ * 2), 220, GetColor(0, 255, 0), TRUE);
+            DrawBox(VOLUME_BAR_X1, VOLUME_BAR_Y1,
+                VOLUME_BAR_X2, VOLUME_BAR_Y2,
+                GetColor(VOLUME_BAR_COLOR_R, VOLUME_BAR_COLOR_G, VOLUME_BAR_COLOR_B),
+                TRUE);
+
+            DrawBox(VOLUME_BAR_X1, VOLUME_BAR_Y1,
+                VOLUME_BAR_X1 + (bgmVolume_ * 2),
+                VOLUME_BAR_Y2,
+                GetColor(VOLUME_FILL_COLOR_R, VOLUME_FILL_COLOR_G, VOLUME_FILL_COLOR_B),
+                TRUE);
         }
     }
 
