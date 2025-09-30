@@ -1,21 +1,15 @@
 #include <DxLib.h>
-//#include <EffekseerForDXLib.h>
-//
-//#include "Utility/FrameRate.h"
-//
-#include "Manager/ResourceManager.h"
 #include "Manager/InputManager.h"
 #include "Manager/SceneManager.h"
-//#include "Manager/SoundManager.h"
-
 #include "Application.h"
 
 Application* Application::instance_ = nullptr;
 
-const std::string Application::PATH_IMAGE = "Data/Image/";
-const std::string Application::PATH_MODEL = "Data/Model/";
-const std::string Application::PATH_EFFECT = "Data/Effect/";
-const std::string Application::PATH_SOUND = "Data/Sound/";
+const std::string Application::PATH_DATA = "Data/";
+const std::string Application::PATH_IMAGE = PATH_DATA + "Image/";
+const std::string Application::PATH_MODEL = PATH_DATA + "Model/";
+const std::string Application::PATH_EFFECT = PATH_DATA + "Effect/";
+const std::string Application::PATH_MAP_DATA = PATH_DATA + "MapData/MapData.csv";
 
 void Application::CreateInstance(void)
 {
@@ -35,7 +29,7 @@ void Application::Init(void)
 {
 
 	// アプリケーションの初期設定
-	SetWindowText("2416080_山口龍志");
+	SetWindowText("a");
 
 	// ウィンドウサイズ
 	SetGraphMode(SCREEN_SIZE_X, SCREEN_SIZE_Y, 32);
@@ -50,20 +44,20 @@ void Application::Init(void)
 		return;
 	}
 
-	SetWaitVSyncFlag(0); // 垂直同期無効化
-	//frameRate_ = new FrameRate; // フレームレート
+	// 乱数のシード値を設定する
+	DATEDATA date;
 
-	//Effekseerの初期化を行う
-	/*InitEffekseer();*/
+	// 現在時刻を取得する
+	GetDateTime(&date);
 
-	// キー制御初期化
+	// 乱数の初期値を設定する
+	// 設定する数値によって、ランダムの出方が変わる
+	SRand(date.Year + date.Mon + date.Day + date.Hour + date.Min + date.Sec);
+
+	// 入力制御初期化
 	SetUseDirectInputFlag(true);
 	InputManager::CreateInstance();
 
-	//// リソース管理初期化
-	ResourceManager::CreateInstance();
-	////音の初期化
-	//SoundManager::CreateInstance();
 	// シーン管理初期化
 	SceneManager::CreateInstance();
 
@@ -71,48 +65,27 @@ void Application::Init(void)
 
 void Application::Run(void)
 {
-	//
-	auto& inputManager = InputManager::GetInstance();
-	auto& sceneManager = SceneManager::GetInstance();
-	//
-		// ゲームループ
-	while (ProcessMessage() == 0 && isGameEnd_ == false)
+
+	InputManager& inputManager = InputManager::GetInstance();
+	SceneManager& sceneManager = SceneManager::GetInstance();
+
+	// ゲームループ
+	while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
 	{
-		//		frameRate_->Update(); // フレームレート更新
-		//
-		//		if (frameRate_->GetLimitFrameRate() == true)
-		//		{
-		//			frameRate_->SetFrameRate();
-#ifdef _DEBUG
-			// デバッグ時のみ、Escapeキー入力時にゲーム終了処理
-		SetGameEnd((CheckHitKey(KEY_INPUT_ESCAPE) == 1) ? true : false);
-#endif
+
 		inputManager.Update();
 		sceneManager.Update();
 
 		sceneManager.Draw();
 
-		/*frameRate_->Draw();*/
 		ScreenFlip();
+
 	}
-	//
-	//	}
 
 }
 
 void Application::Destroy(void)
 {
-	// フレームレート制御 解放処理
-	delete frameRate_;
-
-
-	InputManager::GetInstance().Destroy();
-	ResourceManager::GetInstance().Destroy();
-	SceneManager::GetInstance().Destroy();
-	//SoundManager::GetInstance().Destroy();
-
-	//// Effekseerを終了する。
-	//Effkseer_End();
 
 	// DxLib終了
 	if (DxLib_End() == -1)
@@ -120,6 +93,13 @@ void Application::Destroy(void)
 		isReleaseFail_ = true;
 	}
 
+	// シーン管理解放
+	SceneManager::GetInstance().Destroy();
+
+	// 入力制御解放
+	InputManager::GetInstance().Destroy();
+
+	// インスタンスのメモリ解放
 	delete instance_;
 
 }
@@ -138,25 +118,4 @@ Application::Application(void)
 {
 	isInitFail_ = false;
 	isReleaseFail_ = false;
-	isGameEnd_ = false;
-}
-
-
-/// <summary>
-/// ゲームを終了するか否か
-/// </summary>
-/// <param name="flag">ゲーム終了フラグ</param>
-void Application::SetGameEnd(bool flag)
-{
-	isGameEnd_ = flag;
-}
-
-void Application::InitEffekseer(void)
-{
-	/*if (Effekseer_Init(8000) == -1)
-	{
-		DxLib_End();
-	}
-	SetChangeScreenModeGraphicsSystemResetFlag(FALSE);
-	Effekseer_SetGraphicsDeviceLostCallbackFunctions();*/
 }

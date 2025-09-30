@@ -1,5 +1,4 @@
 #include <DxLib.h>
-#include "../Manager/SceneManager.h"
 #include "../Application.h"
 #include "Fader.h"
 
@@ -75,15 +74,6 @@ void Fader::Update(void)
 		}
 		break;
 
-	case STATE::LOADING:
-		loadTime_ += SceneManager::GetInstance().GetDeltaTime();
-		if (loadTime_ >= 0.5f)
-		{
-			loadTime_ = 0.0f;
-			loadCnt_ += 1;
-		}
-		break;
-
 	default:
 		return;
 	}
@@ -108,5 +98,5 @@ void Fader::Draw(void)
 		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 		break;
 	}
-}
 
+}

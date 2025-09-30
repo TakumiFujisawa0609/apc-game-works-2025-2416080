@@ -1,23 +1,30 @@
 #pragma once
-#include "SceneBase.h"
+#include "../Scene/SceneBase.h"
+#include "../Manager/Camera.h"
 
+// ゲーム本編のシーン
+// - プレイヤーの操作テスト
+// - ステージ背景や簡単な敵の雛形を後で追加予定
 class GameScene : public SceneBase
 {
-
 public:
+    GameScene();
+    ~GameScene();
 
-	// コンストラクタ
-	GameScene(void);
-
-	// デストラクタ
-	~GameScene(void);
-
-	void Init(void) override;
-	void Update(void) override;
-	void Draw(void) override;
-	void Release(void) override;
+    void Init(void) override;    // 初期化
+    void Update(void) override;  // 更新
+    void Draw(void) override;    // 描画
+    void Release(void) override; // 解放
 
 private:
 
-	int stage_;
+    int playerX_;   // プレイヤーのX座標
+    int playerY_;   // プレイヤーのY座標
+    int playerImg_; // プレイヤーの画像ハンドル
+    
+	int bgImg_;     // 背景画像のハンドル
+
+    int stageWidth_;
+
+	Camera camera_; // カメラ
 };

@@ -1,31 +1,32 @@
 #pragma once
-#include "SceneBase.h"
+#include "../Scene/SceneBase.h"
 
+// タイトル画面シーン
+// - タイトルロゴを表示
+// - メニュー選択（スタート / オプション / 終了）
+// - 入力操作に応じてシーンを切り替える
 class TitleScene : public SceneBase
 {
-
 public:
 
+    TitleScene();   // コンストラクタ
+    ~TitleScene();  // デストラクタ
 
-	// コンストラクタ
-	TitleScene(void);
+    // シーン開始時の初期化処理
+    void Init(void) override;
 
-	// デストラクタ
-	~TitleScene(void);
+    // 毎フレームの更新処理（入力チェックなど）
+    void Update(void) override;
 
-	void Init(void) override;
-	void Update(void) override;
-	void Draw(void) override;
-	void Release(void) override;
+    // 毎フレームの描画処理
+    void Draw(void) override;
+
+    // シーン終了時のリソース解放
+    void Release(void) override;
 
 private:
 
-	// タイトルロゴ
-	int imgTitleLogo_;
+    int selectNum_;   // 現在選択中のメニュー番号（0=START,1=OPTION,2=EXIT）
 
-	int cntSound_;
-
-	// ロゴ描画
-	void DrawLogo(void);
-
+    int titleImg_;    // タイトル画像のハンドル
 };
