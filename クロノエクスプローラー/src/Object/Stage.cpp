@@ -3,7 +3,27 @@
 #include <fstream>
 #include <sstream>
 
-// JSONライブラリがない環境用に、CSVデータを直接解析する方法
+Stage::Stage() 
+{
+}
+
+Stage::~Stage() 
+{
+}
+
+void Stage::Init()
+{
+    blocks_.clear();
+
+    // デフォルトの床（仮に置く場合、Tiled読み込みと併用しないならコメントアウト可）
+    blocks_.push_back({
+        0,
+        Application::SCREEN_SIZE_Y - FLOOR_HEIGHT,
+        STAGE_WIDTH,
+        FLOOR_HEIGHT
+    });
+}
+
 void Stage::LoadFromTiled(const std::string& filename)
 {
     blocks_.clear();
@@ -12,37 +32,39 @@ void Stage::LoadFromTiled(const std::string& filename)
     if (!file.is_open()) return;
 
     std::string line;
-    bool inData = false;
     int y = 0;
 
     while (std::getline(file, line))
     {
-        if (line.find("<data encoding=\"csv\">") != std::string::npos) {
-            inData = true;
-            continue;
-        }
-        if (line.find("</data>") != std::string::npos) {
-            break;
-        }
+        std::stringstream ss(line);
+        std::string value;
+        int x = 0;
 
-        if (inData) {
-            std::stringstream ss(line);
-            std::string value;
-            int x = 0;
+        while (std::getline(ss, value, ',')) {
+            if (value.empty()) continue;
 
-            while (std::getline(ss, value, ',')) {
-                int tileId = std::stoi(value);
-                if (tileId == 42) { // 床・壁として扱うID
-                    Block b;
-                    b.x = x * 32;
-                    b.y = y * 32;
-                    b.w = 32;
-                    b.h = 32;
-                    blocks_.push_back(b);
-                }
-                x++;
+            int tileId = std::stoi(value);
+
+            if (tileId != 0) { // 0 = 空白, それ以外 = ブロック
+                Block block;
+                block.x = x * BLOCK_WIDTH;
+                block.y = y * BLOCK_HEIGHT;
+                block.w = BLOCK_WIDTH;
+                block.h = BLOCK_HEIGHT;
+                blocks_.push_back(block);
             }
-            y++;
+            x++;
         }
+        y++;
+    }
+}
+
+void Stage::Draw(const Camera& cam)
+{
+    for (auto& b : blocks_) {
+        DrawBox(b.x - cam.GetX(), b.y,
+            b.x + b.w - cam.GetX(), b.y + b.h,
+            GetColor(BLOCK_COLOR_R, BLOCK_COLOR_G, BLOCK_COLOR_B),
+            TRUE);
     }
 }

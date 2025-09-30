@@ -63,6 +63,7 @@ void Player::Update(const Stage& stage)
     }
 }
 
+
 void Player::Draw(const Camera& cam)
 {
     if (img_ != -1) {

@@ -26,20 +26,22 @@ void GameScene::Init(void)
     // 背景画像読み込み
     bgImg_ = LoadGraph((Application::PATH_IMAGE + "game_bg.png").c_str());
 
-    stage_.LoadFromTiled(Application::PATH_MAP_DATA + "stage1.json");
+    stage_.LoadFromTiled(Application::PATH_MAP_DATA + "stage1.csv");
 
     // プレイヤー初期位置
     playerX_ = PLAYER_INIT_X;
     playerY_ = PLAYER_INIT_Y;
 
+
+    // プレイヤー初期化
+    player_.Init();
+
     // カメラ初期化
-    camera_.Init(stageWidth_);
+    camera_.Init(Stage::STAGE_WIDTH);
 
     // ステージ初期化
     stage_.Init();
 
-    // プレイヤー初期化
-    player_.Init();
 }
 
 void GameScene::Update(void)
@@ -70,23 +72,11 @@ void GameScene::Update(void)
 
 void GameScene::Draw(void)
 {
-    // 背景描画
-    if (bgImg_ != -1) {
-        int bgW, bgH;
-        GetGraphSize(bgImg_, &bgW, &bgH);
-
-        // 横スクロール対応のタイル描画
-        int startX = -(camera_.GetX() % bgW);
-        for (int x = startX; x < Application::SCREEN_SIZE_X; x += bgW) {
-            DrawGraph(x, 0, bgImg_, TRUE);
-        }
-    }
-    else {
         // 背景画像がない場合は青で塗る
         DrawBox(0, 0,
             Application::SCREEN_SIZE_X, Application::SCREEN_SIZE_Y,
             GetColor(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B), TRUE);
-    }
+    
 
     // ステージ描画
     stage_.Draw(camera_);
