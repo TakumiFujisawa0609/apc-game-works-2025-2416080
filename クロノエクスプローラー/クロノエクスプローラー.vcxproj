@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Manager\Camera.h" />
     <ClInclude Include="src\Scene\ResultScene.h" />
     <ClInclude Include="src\Scene\GameScene.h" />
     <ClInclude Include="src\Manager\Resource.h" />
@@ -148,8 +149,10 @@
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\Common\Vector2.h" />
     <ClInclude Include="src\Scene\TitleScene.h" />
+    <ClInclude Include="src\Utility\Utility.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Manager\Camera.cpp" />
     <ClCompile Include="src\Scene\ResultScene.cpp" />
     <ClCompile Include="src\Scene\GameScene.cpp" />
     <ClCompile Include="src\Manager\Resource.cpp" />
@@ -164,6 +167,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Common\Vector2.cpp" />
     <ClCompile Include="src\Scene\TitleScene.cpp" />
+    <ClCompile Include="src\Utility\Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="C:\Users\ryusi\OneDrive\ドキュメント\AGS2025_Summer_18\One Shot\Data\Image\Title.png" />
