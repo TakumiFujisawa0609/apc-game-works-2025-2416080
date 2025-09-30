@@ -5,6 +5,7 @@
 
 Application* Application::instance_ = nullptr;
 
+// データパス
 const std::string Application::PATH_DATA = "Data/";
 const std::string Application::PATH_IMAGE = PATH_DATA + "Image/";
 const std::string Application::PATH_MODEL = PATH_DATA + "Model/";
@@ -13,109 +14,93 @@ const std::string Application::PATH_MAP_DATA = PATH_DATA + "MapData/MapData.csv"
 
 void Application::CreateInstance(void)
 {
-	if (instance_ == nullptr)
-	{
-		instance_ = new Application();
-	}
-	instance_->Init();
+    if (instance_ == nullptr)
+    {
+        instance_ = new Application();
+    }
+    instance_->Init();
 }
 
 Application& Application::GetInstance(void)
 {
-	return *instance_;
+    return *instance_;
 }
 
 void Application::Init(void)
 {
+    // アプリケーションの初期設定
+    SetWindowText("Chrono Explorer");
 
-	// アプリケーションの初期設定
-	SetWindowText("a");
+    // ウィンドウサイズと色深度
+    SetGraphMode(SCREEN_SIZE_X, SCREEN_SIZE_Y, COLOR_BIT_DEPTH);
+    ChangeWindowMode(true);
 
-	// ウィンドウサイズ
-	SetGraphMode(SCREEN_SIZE_X, SCREEN_SIZE_Y, 32);
-	ChangeWindowMode(true);
+    // DxLibの初期化
+    isInitFail_ = false;
+    if (DxLib_Init() == -1)
+    {
+        isInitFail_ = true;
+        return;
+    }
 
-	// DxLibの初期化
-	SetUseDirect3DVersion(DX_DIRECT3D_11);
-	isInitFail_ = false;
-	if (DxLib_Init() == -1)
-	{
-		isInitFail_ = true;
-		return;
-	}
+    // 乱数のシード値を設定する
+    DATEDATA date;
+    GetDateTime(&date);
+    SRand(date.Year + date.Mon + date.Day + date.Hour + date.Min + date.Sec);
 
-	// 乱数のシード値を設定する
-	DATEDATA date;
+    // 入力制御初期化
+    SetUseDirectInputFlag(true);
+    InputManager::CreateInstance();
 
-	// 現在時刻を取得する
-	GetDateTime(&date);
-
-	// 乱数の初期値を設定する
-	// 設定する数値によって、ランダムの出方が変わる
-	SRand(date.Year + date.Mon + date.Day + date.Hour + date.Min + date.Sec);
-
-	// 入力制御初期化
-	SetUseDirectInputFlag(true);
-	InputManager::CreateInstance();
-
-	// シーン管理初期化
-	SceneManager::CreateInstance();
-
+    // シーン管理初期化
+    SceneManager::CreateInstance();
 }
 
 void Application::Run(void)
 {
+    InputManager& inputManager = InputManager::GetInstance();
+    SceneManager& sceneManager = SceneManager::GetInstance();
 
-	InputManager& inputManager = InputManager::GetInstance();
-	SceneManager& sceneManager = SceneManager::GetInstance();
-
-	// ゲームループ
-	while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
-	{
-
-		inputManager.Update();
-		sceneManager.Update();
-
-		sceneManager.Draw();
-
-		ScreenFlip();
-
-	}
-
+    // ゲームループ
+    while (ProcessMessage() == 0)
+    {
+        inputManager.Update();
+        sceneManager.Update();
+        sceneManager.Draw();
+        ScreenFlip();
+    }
 }
 
 void Application::Destroy(void)
 {
+    // DxLib終了
+    if (DxLib_End() == -1)
+    {
+        isReleaseFail_ = true;
+    }
 
-	// DxLib終了
-	if (DxLib_End() == -1)
-	{
-		isReleaseFail_ = true;
-	}
+    // シーン管理解放
+    SceneManager::GetInstance().Destroy();
 
-	// シーン管理解放
-	SceneManager::GetInstance().Destroy();
+    // 入力制御解放
+    InputManager::GetInstance().Destroy();
 
-	// 入力制御解放
-	InputManager::GetInstance().Destroy();
-
-	// インスタンスのメモリ解放
-	delete instance_;
-
+    // インスタンスのメモリ解放
+    delete instance_;
 }
 
 bool Application::IsInitFail(void) const
 {
-	return isInitFail_;
+    return isInitFail_;
 }
 
 bool Application::IsReleaseFail(void) const
 {
-	return isReleaseFail_;
+    return isReleaseFail_;
 }
 
 Application::Application(void)
 {
-	isInitFail_ = false;
-	isReleaseFail_ = false;
+    isInitFail_ = false;
+    isReleaseFail_ = false;
 }

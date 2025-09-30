@@ -3,62 +3,59 @@
 
 class Application
 {
-
 public:
+    // スクリーンサイズ（マジックナンバー削除）
+    static constexpr int SCREEN_SIZE_X = 1280;
+    static constexpr int SCREEN_SIZE_Y = 720;   // 640 → 720 に統一（一般的な16:9解像度）
 
-	// スクリーンサイズ
-	static constexpr int SCREEN_SIZE_X = 1280;
-	static constexpr int SCREEN_SIZE_Y = 640;
+    // 色深度（32bit固定なので constexpr にする）
+    static constexpr int COLOR_BIT_DEPTH = 32;
 
-	// データパス関連
-	//-------------------------------------------
-	static const std::string PATH_DATA;
-	static const std::string PATH_IMAGE;
-	static const std::string PATH_MODEL;
-	static const std::string PATH_EFFECT;
-	static const std::string PATH_MAP_DATA;
-	//-------------------------------------------
 
-	// インスタンスを明示的に生成
-	static void CreateInstance(void);
+    // データパス関連
+    static const std::string PATH_DATA;
+    static const std::string PATH_IMAGE;
+    static const std::string PATH_MODEL;
+    static const std::string PATH_EFFECT;
+    static const std::string PATH_MAP_DATA;
 
-	// インスタンスの取得
-	static Application& GetInstance(void);
+    // インスタンスを明示的に生成
+    static void CreateInstance(void);
 
-	// 初期化
-	void Init(void);
+    // インスタンスの取得
+    static Application& GetInstance(void);
 
-	// ゲームループの開始
-	void Run(void);
+    // 初期化
+    void Init(void);
 
-	// リソースの破棄
-	void Destroy(void);
+    // ゲームループの開始
+    void Run(void);
 
-	// 初期化成功／失敗の判定
-	bool IsInitFail(void) const;
+    // リソースの破棄
+    void Destroy(void);
 
-	// 解放成功／失敗の判定
-	bool IsReleaseFail(void) const;
+    // 初期化成功／失敗の判定
+    bool IsInitFail(void) const;
+
+    // 解放成功／失敗の判定
+    bool IsReleaseFail(void) const;
 
 private:
+    // 静的インスタンス
+    static Application* instance_;
 
-	// 静的インスタンス
-	static Application* instance_;
+    // 初期化失敗
+    bool isInitFail_;
 
-	// 初期化失敗
-	bool isInitFail_;
+    // 解放失敗
+    bool isReleaseFail_;
 
-	// 解放失敗
-	bool isReleaseFail_;
+    // デフォルトコンストラクタを private にして外部から生成できないようにする
+    Application(void);
 
-	// デフォルトコンストラクタをprivateにして、
-	// 外部から生成できない様にする
-	Application(void);
+    // コピーコンストラクタ禁止（デフォルトにして隠す）
+    Application(const Application& instance) = default;
 
-	// コピーコンストラクタも同様
-	Application(const Application& instance) = default;
-
-	// デストラクタも同様
-	~Application(void) = default;
-
+    // デストラクタ禁止（デフォルトにして隠す）
+    ~Application(void) = default;
 };

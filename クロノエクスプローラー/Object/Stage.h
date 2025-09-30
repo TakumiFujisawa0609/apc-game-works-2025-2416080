@@ -13,6 +13,16 @@ struct Block {
 class Stage
 {
 public:
+
+    static constexpr int STAGE_WIDTH = 3000; // ステージ全体の幅
+    static constexpr int FLOOR_HEIGHT = 50;   // 地面の高さ
+    static constexpr int BLOCK_WIDTH = 200;  // 足場ブロックの幅
+    static constexpr int BLOCK_HEIGHT = 30;   // 足場ブロックの高さ
+    static constexpr int GROUND_Y_OFFSET = 50; // 画面下からのオフセット
+    static constexpr int BLOCK_COLOR_R = 150;  // ブロック色（R）
+    static constexpr int BLOCK_COLOR_G = 75;   // ブロック色（G）
+    static constexpr int BLOCK_COLOR_B = 0;    // ブロック色（B）
+
     Stage();
     ~Stage();
 
@@ -23,4 +33,5 @@ public:
 
 private:
     std::vector<Block> blocks_;    // ステージのブロック配列
+
 };

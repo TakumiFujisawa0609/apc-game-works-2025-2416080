@@ -5,6 +5,11 @@
 class Camera
 {
 public:
+
+    static constexpr float DEFAULT_FOLLOW_RATE = 0.15f; // デフォルト追従率
+    static constexpr float MIN_FOLLOW_RATE = 0.05f; // 最低追従率
+    static constexpr float MAX_FOLLOW_RATE = 0.3f;  // 最高追従率
+
     Camera();
     ~Camera();
 
@@ -13,6 +18,7 @@ public:
     int GetX() const { return cameraX_; }   // カメラ座標を取得
 
 private:
+
     int cameraX_;       // 現在のカメラX
     int targetX_;       // プレイヤーに基づいた目標カメラX
     int stageWidth_;    // ステージ幅

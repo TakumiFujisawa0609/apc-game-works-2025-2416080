@@ -1,48 +1,39 @@
 #pragma once
 #include "../Manager/Camera.h"
-#include "Stage.h"
+#include "../Object/Stage.h"
 
 class Player
 {
 public:
-    static constexpr int WIDTH = 32;
+    static constexpr int WIDTH = 32;                 // プレイヤー幅
+    static constexpr int HEIGHT = 32;                // プレイヤー高さ
+    static constexpr int SPEED = 5;                  // 横移動速度
+    static constexpr float GRAVITY = 0.4f;           // 重力
+    static constexpr float JUMP_POWER = 8.0f;        // ジャンプ力
+    static constexpr float MAX_FALL_SPEED = 10.0f;   // 最大落下速度
+    static constexpr int INIT_X = 200;               // 初期位置X
+    static constexpr int INIT_Y_OFFSET = 200;        // 初期位置オフセット（画面下からの距離）
 
-    static constexpr int HEIGHT = 32;
-
-    static constexpr int SPEED = 5;
-
-    static constexpr float GRAVITY = 0.4f;
-
-    static constexpr float JUMP_POWER = 8.0f;
-
-    static constexpr float JUMP_HOLD_BOOST = 0.2f;
-
-    static constexpr float MAX_FALL_SPEED = 10.0f;
 
     Player();
     ~Player();
 
-    void Init();                  // 初期化
-    void Update(const Stage& stage);                // 入力処理・物理計算
-    void Draw(const Camera& cam); // カメラ補正して描画
-    void Release();               // 解放処理
+    void Init();
+    void Update(const Stage& stage);
+    void Draw(const Camera& cam);
+    void Release();
 
     // getter
     int GetX() const { return x_; }
     int GetY() const { return y_; }
-    int GetWidth() const { return width_; }
-    int GetHeight() const { return height_; }
+    int GetWidth() const { return WIDTH; }
+    int GetHeight() const { return HEIGHT; }
 
 private:
-    int x_, y_;        // プレイヤー座標
+    // ==== メンバ変数 ====
+    int x_, y_;
     int width_, height_;
-    int img_;          // 画像ハンドル
-
-    float velocityY_;    // Y方向の速度
-    bool onGround_;      // 地面にいるかどうか
-
-    int speed_;          // 横移動速度
-    int gravity_;        // 重力
-    int jumpPower_;      // ジャンプ力
-
+    int img_;
+    float velocityY_;
+    bool onGround_;
 };

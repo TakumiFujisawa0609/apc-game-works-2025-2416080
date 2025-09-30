@@ -4,6 +4,8 @@
 #include "../Manager/InputManager.h"
 
 Player::Player()
+    : x_(0), y_(0), width_(WIDTH), height_(HEIGHT),
+    img_(-1), velocityY_(0.0f), onGround_(false)
 {
 }
 
@@ -17,18 +19,12 @@ void Player::Init()
     // プレイヤー画像を読み込み
     img_ = LoadGraph((Application::PATH_IMAGE + "player.png").c_str());
 
-    x_ = 200;
-    y_ = Application::SCREEN_SIZE_Y - 200;
-    width_ = WIDTH;
-
-	height_ = HEIGHT;
+    // 初期位置（画面下から INIT_Y_OFFSET 上）
+    x_ = INIT_X;
+    y_ = Application::SCREEN_SIZE_Y - INIT_Y_OFFSET;
 
     velocityY_ = 0.0f;
     onGround_ = false;
-
-    speed_ = SPEED;
-    gravity_ = GRAVITY;      // 毎フレーム下に落ちる加速度
-    jumpPower_ = JUMP_POWER;   // ジャンプ力
 }
 
 void Player::Update(const Stage& stage)
@@ -36,17 +32,18 @@ void Player::Update(const Stage& stage)
     auto& input = InputManager::GetInstance();
 
     // 横移動
-    if (input.IsNew(KEY_INPUT_D)) x_ += speed_;
-    if (input.IsNew(KEY_INPUT_A)) x_ -= speed_;
+    if (input.IsNew(KEY_INPUT_D)) x_ += SPEED;
+    if (input.IsNew(KEY_INPUT_A)) x_ -= SPEED;
 
     // ジャンプ
     if (input.IsNew(KEY_INPUT_SPACE) && onGround_) {
-        velocityY_ = -jumpPower_;
+        velocityY_ = -JUMP_POWER;
         onGround_ = false;
     }
 
     // 重力を適用
-    velocityY_ += gravity_;
+    velocityY_ += GRAVITY;
+    if (velocityY_ > MAX_FALL_SPEED) velocityY_ = MAX_FALL_SPEED;
     y_ += static_cast<int>(velocityY_);
 
     // 地面との当たり判定
@@ -72,7 +69,6 @@ void Player::Update(const Stage& stage)
             onGround_ = true;
         }
     }
-
 }
 
 void Player::Draw(const Camera& cam)
