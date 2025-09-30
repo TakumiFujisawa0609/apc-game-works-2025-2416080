@@ -31,6 +31,8 @@ public:
 
     const std::vector<Block>& GetBlocks() const { return blocks_; }
 
+    void LoadFromTiled(const std::string& filename);
+
 private:
     std::vector<Block> blocks_;    // ステージのブロック配列
 

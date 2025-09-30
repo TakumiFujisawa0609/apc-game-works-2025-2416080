@@ -26,6 +26,8 @@ void GameScene::Init(void)
     // 背景画像読み込み
     bgImg_ = LoadGraph((Application::PATH_IMAGE + "game_bg.png").c_str());
 
+    stage_.LoadFromTiled(Application::PATH_MAP_DATA + "stage1.json");
+
     // プレイヤー初期位置
     playerX_ = PLAYER_INIT_X;
     playerY_ = PLAYER_INIT_Y;
