@@ -36,8 +36,28 @@ void Player::Update(const Stage& stage, GimmickManager& gimmickManager)
 
     // 横移動
     velocityX_ = 0.0f;
-    if (input.IsPress(KEY_INPUT_D)) velocityX_ = MOVE_SPEED;
-    if (input.IsPress(KEY_INPUT_A)) velocityX_ = -MOVE_SPEED;
+    if (input.IsPress(KEY_INPUT_D))
+    {
+        if (input.IsPress(KEY_INPUT_LSHIFT))
+        {
+            velocityX_ = DASH_SPEED;
+        }
+        else {
+            velocityX_ = MOVE_SPEED;
+        }
+    }
+
+
+    if (input.IsPress(KEY_INPUT_A))
+    {
+        if (input.IsPress(KEY_INPUT_LSHIFT))
+        {
+            velocityX_ = -DASH_SPEED;
+        }
+        else {
+            velocityX_ = -MOVE_SPEED;
+		}
+    }
 
     // ジャンプ開始
     if (onGround_ && canJump_ && input.IsNew(KEY_INPUT_SPACE)) {

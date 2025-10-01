@@ -16,6 +16,8 @@ public:
     static constexpr float JUMP_CHARGE_RATE = 0.3f;
     static constexpr float MAX_JUMP_BOOST = 5.0f;
 
+    static constexpr int DASH_SPEED = 6;
+
     Player();
     ~Player();
 
