@@ -2,6 +2,7 @@
 #include <vector>
 #include "../Application.h"
 #include "../Manager/Camera.h"
+#include "../Common/Vector2.h"
 
 // ステージのブロック定義
 struct Block {
@@ -19,9 +20,9 @@ public:
     static constexpr int BLOCK_WIDTH = 200;  // 足場ブロックの幅
     static constexpr int BLOCK_HEIGHT = 30;   // 足場ブロックの高さ
     static constexpr int GROUND_Y_OFFSET = 50; // 画面下からのオフセット
-    static constexpr int BLOCK_COLOR_R = 150;  // ブロック色（R）
-    static constexpr int BLOCK_COLOR_G = 75;   // ブロック色（G）
-    static constexpr int BLOCK_COLOR_B = 0;    // ブロック色（B）
+    static constexpr int BLOCK_COLOR_R = 100;  // ブロック色（R）
+    static constexpr int BLOCK_COLOR_G = 100;   // ブロック色（G）
+    static constexpr int BLOCK_COLOR_B = 100;    // ブロック色（B）
 
     Stage();
     ~Stage();
@@ -33,7 +34,10 @@ public:
 
     void LoadFromTiled(const std::string& filename);
 
+    Vector2 GetSpawnPoint() const;
+
 private:
     std::vector<Block> blocks_;    // ステージのブロック配列
+
 
 };

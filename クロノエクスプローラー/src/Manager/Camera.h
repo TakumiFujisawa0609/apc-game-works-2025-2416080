@@ -16,6 +16,7 @@ public:
     void Init(int stageWidth);              // 初期化
     void Update(int playerX);               // プレイヤー座標に基づいて更新
     int GetX() const { return cameraX_; }   // カメラ座標を取得
+	int GetY() const { return 0; }        // Y座標は常に0
 
 private:
 

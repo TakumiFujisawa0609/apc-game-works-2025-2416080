@@ -3,11 +3,11 @@
 #include "../Manager/InputManager.h"
 #include "../Manager/SceneManager.h"
 #include "../Application.h"
+#include "../Object/Gimmick/MoveFloor.h"
+
 
 GameScene::GameScene()
-    : playerX_(0),
-    playerY_(0),
-    playerImg_(-1),
+    : 
     bgImg_(-1),
     stageWidth_(STAGE_WIDTH)
 {
@@ -20,51 +20,30 @@ GameScene::~GameScene()
 
 void GameScene::Init(void)
 {
-    // プレイヤー画像読み込み
-    playerImg_ = LoadGraph((Application::PATH_IMAGE + "player.png").c_str());
-
-    // 背景画像読み込み
-    bgImg_ = LoadGraph((Application::PATH_IMAGE + "game_bg.png").c_str());
-
+    //bgImg_ = LoadGraph((Application::PATH_IMAGE + "game_bg.png").c_str());
     stage_.LoadFromTiled(Application::PATH_MAP_DATA + "stage1.csv");
 
-    // プレイヤー初期位置
-    playerX_ = PLAYER_INIT_X;
-    playerY_ = PLAYER_INIT_Y;
+    gimmickManager_.Add(new MoveFloor({ 200, 300 }, 100));
 
+    // ステージからプレイヤー初期位置を決定
+    Vector2 spawn = stage_.GetSpawnPoint();
+    player_.Init(spawn.x, spawn.y);
 
-    // プレイヤー初期化
-    player_.Init();
-
-    // カメラ初期化
     camera_.Init(Stage::STAGE_WIDTH);
-
-    // ステージ初期化
-    stage_.Init();
-
 }
 
 void GameScene::Update(void)
 {
     auto& input = InputManager::GetInstance();
 
-    // 移動（仮：個別に座標更新）
-    if (input.IsNew(KEY_INPUT_D)) playerX_ += MOVE_SPEED;
-    if (input.IsNew(KEY_INPUT_A)) playerX_ -= MOVE_SPEED;
-    if (input.IsNew(KEY_INPUT_W)) playerY_ -= MOVE_SPEED;
-    if (input.IsNew(KEY_INPUT_S)) playerY_ += MOVE_SPEED;
+    // プレイヤー更新
+    player_.Update(stage_, gimmickManager_);
 
-    // ステージ範囲チェック
-    if (playerX_ < 0) playerX_ = 0;
-    if (playerX_ > stageWidth_ - PLAYER_SIZE) playerX_ = stageWidth_ - PLAYER_SIZE;
-
-    // プレイヤー更新（当たり判定など内部処理）
-    player_.Update(stage_);
-
-    // カメラ更新（プレイヤーX座標に追従）
+    // カメラ更新
     camera_.Update(player_.GetX());
 
-    // TAB → ポーズシーンへ
+    gimmickManager_.Update();
+
     if (input.IsNew(KEY_INPUT_TAB)) {
         SceneManager::GetInstance().ChangeScene(SceneManager::SCENE_ID::PAUSE);
     }
@@ -72,25 +51,23 @@ void GameScene::Update(void)
 
 void GameScene::Draw(void)
 {
-        // 背景画像がない場合は青で塗る
-        DrawBox(0, 0,
-            Application::SCREEN_SIZE_X, Application::SCREEN_SIZE_Y,
-            GetColor(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B), TRUE);
-    
+    // 背景
+    DrawBox(0, 0,
+        Application::SCREEN_SIZE_X, Application::SCREEN_SIZE_Y,
+        GetColor(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B), TRUE);
 
-    // ステージ描画
+     //ステージ
     stage_.Draw(camera_);
 
-    // プレイヤー描画
+    // プレイヤー（カメラ座標対応済み）
     player_.Draw(camera_);
+
+    // ギミック
+    gimmickManager_.Draw(camera_);
 }
 
 void GameScene::Release(void)
 {
-    if (playerImg_ != -1) {
-        DeleteGraph(playerImg_);
-        playerImg_ = -1;
-    }
 
     if (bgImg_ != -1) {
         DeleteGraph(bgImg_);

@@ -2,6 +2,8 @@
 #include <DxLib.h>
 #include <fstream>
 #include <sstream>
+#include "../Common/Vector2.h"
+#include "../Object/Player.h"
 
 Stage::Stage() 
 {
@@ -41,11 +43,20 @@ void Stage::LoadFromTiled(const std::string& filename)
         int x = 0;
 
         while (std::getline(ss, value, ',')) {
-            if (value.empty()) continue;
+            if (value.empty()) {
+                x++;
+                continue; // 空白は無視
+            }
 
             int tileId = std::stoi(value);
 
-            if (tileId != 0) { // 0 = 空白, それ以外 = ブロック
+            if (tileId == -1) {
+                x++;
+                continue; // -1 も無視
+            }
+
+
+            if (tileId == 41) { 
                 Block block;
                 block.x = x * BLOCK_WIDTH;
                 block.y = y * BLOCK_HEIGHT;
@@ -54,10 +65,15 @@ void Stage::LoadFromTiled(const std::string& filename)
                 blocks_.push_back(block);
             }
             x++;
+
         }
         y++;
+
+
     }
+
 }
+
 
 void Stage::Draw(const Camera& cam)
 {
@@ -67,4 +83,20 @@ void Stage::Draw(const Camera& cam)
             GetColor(BLOCK_COLOR_R, BLOCK_COLOR_G, BLOCK_COLOR_B),
             TRUE);
     }
+}
+
+Vector2 Stage::GetSpawnPoint() const
+{
+    if (blocks_.empty()) return { 64, 64 };
+
+    const Block* spawnBlock = nullptr;
+
+    // 一番下にあるブロックを探す（y が最大のもの）
+    for (auto& block : blocks_) {
+        if (!spawnBlock || block.y > spawnBlock->y) {
+            spawnBlock = &block;
+        }
+    }
+
+    return { spawnBlock->x + 200, spawnBlock->y - Player::HEIGHT };
 }

@@ -1,84 +1,132 @@
 #include "Player.h"
-#include <DxLib.h>
 #include "../Manager/InputManager.h"
+#include "Stage.h"
+#include "Gimmick/GimmickManager.h"
+#include "../Manager/Camera.h"
+#include "../Common/Vector2.h"
+#include <algorithm>
+#include <DxLib.h>
 
 Player::Player()
-    : x_(INIT_X),
-    y_(Application::SCREEN_SIZE_Y - INIT_Y_OFFSET),
-    width_(WIDTH),
-    height_(HEIGHT),
-    img_(-1),
-    velocityY_(0.0f),
-    onGround_(false),
-    isJumping_(false),
-    jumpCharge_(0.0f)
+    : x_(0), y_(0),
+    velocityX_(0.0f), velocityY_(0.0f),
+    onGround_(false), isJumping_(false),
+    jumpCharge_(0.0f), canJump_(true)
 {
 }
 
 Player::~Player() {}
 
-void Player::Init()
+void Player::Init(float startX, float startY)
 {
-    img_ = LoadGraph((Application::PATH_IMAGE + "player.png").c_str());
+    x_ = startX;
+    y_ = startY;
+
+    velocityX_ = 0.0f;
+    velocityY_ = 0.0f;
+    onGround_ = false;
+    isJumping_ = false;
+    jumpCharge_ = 0.0f;
+    canJump_ = true;
 }
 
-void Player::Update(const Stage& stage)
+void Player::Update(const Stage& stage, GimmickManager& gimmickManager)
 {
     auto& input = InputManager::GetInstance();
 
     // 横移動
-    if (input.IsPress(KEY_INPUT_A)) x_ -= SPEED;
-    if (input.IsPress(KEY_INPUT_D)) x_ += SPEED;
+    velocityX_ = 0.0f;
+    if (input.IsPress(KEY_INPUT_D)) velocityX_ = MOVE_SPEED;
+    if (input.IsPress(KEY_INPUT_A)) velocityX_ = -MOVE_SPEED;
 
-    // ジャンプ（長押し対応）
-    if (onGround_ && input.IsPress(KEY_INPUT_SPACE)) {
-        isJumping_ = true;
-        jumpCharge_ = 0.0f;
+    // ジャンプ開始
+    if (onGround_ && canJump_ && input.IsNew(KEY_INPUT_SPACE)) {
         velocityY_ = -JUMP_POWER;
         onGround_ = false;
+        isJumping_ = true;
+        jumpCharge_ = 0.0f;
+        canJump_ = false;
     }
+
+    // 長押しジャンプ調整
     if (isJumping_ && input.IsPress(KEY_INPUT_SPACE)) {
         if (jumpCharge_ < MAX_JUMP_BOOST) {
             velocityY_ -= JUMP_CHARGE_RATE;
             jumpCharge_ += JUMP_CHARGE_RATE;
         }
     }
+
+    // キーを離したらジャンプ再受付
     if (!input.IsPress(KEY_INPUT_SPACE)) {
-        isJumping_ = false;
+        canJump_ = true;
     }
 
-    // 重力適用
+    // 重力
     velocityY_ += GRAVITY;
     if (velocityY_ > MAX_FALL_SPEED) velocityY_ = MAX_FALL_SPEED;
-    y_ += static_cast<int>(velocityY_);
 
-    // 簡易接地判定（Stageの地面を使う）
-    for (auto& block : stage.GetBlocks()) {
-        if (x_ + width_ > block.x && x_ < block.x + block.w &&
-            y_ + height_ > block.y && y_ < block.y + block.h) {
-            y_ = block.y - height_; // 上に乗せる
-            velocityY_ = 0.0f;
-            onGround_ = true;
+    float nextX = x_ + velocityX_;
+    float nextY = y_ + velocityY_;
+    onGround_ = false;
+
+    // ステージブロックとの衝突判定
+    for (auto& block : stage.GetBlocks())
+    {
+        RECT pRect = { (int)nextX, (int)nextY,
+                       (int)(nextX + WIDTH), (int)(nextY + HEIGHT) };
+
+        RECT bRect = { block.x, block.y, block.x + block.w, block.y + block.h };
+
+        if (pRect.left < bRect.right && pRect.right > bRect.left &&
+            pRect.top < bRect.bottom && pRect.bottom > bRect.top)
+        {
+            int overlapX1 = bRect.right - pRect.left;
+            int overlapX2 = pRect.right - bRect.left;
+            int overlapY1 = bRect.bottom - pRect.top;
+            int overlapY2 = pRect.bottom - bRect.top;
+
+            int overlaps[] = { overlapX1, overlapX2, overlapY1, overlapY2 };
+            int minOverlap = *std::min_element(overlaps, overlaps + 4);
+
+            if (minOverlap == overlapX1) {
+                nextX = bRect.right;
+                velocityX_ = 0;
+            }
+            else if (minOverlap == overlapX2) {
+                nextX = bRect.left - WIDTH;
+                velocityX_ = 0;
+            }
+            else if (minOverlap == overlapY1) {
+                nextY = bRect.bottom;
+                velocityY_ = 0;
+            }
+            else if (minOverlap == overlapY2) {
+                nextY = bRect.top - HEIGHT;
+                velocityY_ = 0;
+                onGround_ = true;
+                isJumping_ = false;
+            }
         }
     }
-}
 
+    // 移動床の上に乗っていたら一緒に動く
+    if (onGround_) {
+        Vector2 floorMove = gimmickManager.CheckOnMoveFloor((int)x_, (int)y_, WIDTH, HEIGHT);
+        x_ += floorMove.x;
+        y_ += floorMove.y;
+    }
+
+    // 座標確定
+    x_ = nextX;
+    y_ = nextY;
+}
 
 void Player::Draw(const Camera& cam)
 {
-    if (img_ != -1) {
-        DrawGraph(x_ - cam.GetX(), y_, img_, TRUE);
-    }
-    else {
-        DrawBox(x_ - cam.GetX(), y_, x_ - cam.GetX() + width_, y_ + height_,
-            GetColor(255, 255, 255), TRUE);
-    }
-}
+    int drawX = (int)(x_ - cam.GetX());
+    int drawY = (int)(y_ - cam.GetY());
 
-void Player::Release()
-{
-    if (img_ != -1) {
-        DeleteGraph(img_);
-        img_ = -1;
-    }
+    DrawBox(drawX, drawY,
+        drawX + WIDTH, drawY + HEIGHT,
+        GetColor(0, 255, 0), TRUE);
 }
