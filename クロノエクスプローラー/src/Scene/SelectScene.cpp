@@ -19,7 +19,7 @@ SelectScene::~SelectScene()
 
 void SelectScene::Init(void)
 {
-	stage_ = SceneManager::GetInstance().GetStage();
+	//stage_ = SceneManager::GetInstance().GetStage();
 
 	//”ñ“¯Šú“Ç‚İ‚İ‚ğ—LŒø‚É‚·‚é
 	SetUseASyncLoadFlag(false);
@@ -37,8 +37,8 @@ void SelectScene::Update(void)
 	InputManager& ins = InputManager::GetInstance();
 	if (ins.IsTrgDown(KEY_INPUT_SPACE))
 	{
-		SceneManager::GetInstance().ResetGame();
-		SceneManager::GetInstance().SetStage(stage_);
+		//SceneManager::GetInstance().ResetGame();
+		//SceneManager::GetInstance().SetStage(stage_);
 		SceneManager::GetInstance().ChangeScene(SceneManager::SCENE_ID::GAME);
 		return;
 	}

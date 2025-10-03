@@ -4,21 +4,16 @@
 #include "../Manager/SceneManager.h"
 #include "../Application.h"
 
-// コンストラクタ
 TitleScene::TitleScene()
+    : selectNum_(0),
+    titleImg_(-1)
 {
-    selectNum_ = 0;
-
-    titleImg_ = -1;   // 画像は未読み込み状態
 }
 
-// デストラクタ
 TitleScene::~TitleScene()
 {
 }
 
-// 初期化処理
-// - タイトル画像を読み込む
 void TitleScene::Init(void)
 {
     selectNum_ = 0;
@@ -27,69 +22,56 @@ void TitleScene::Init(void)
     titleImg_ = LoadGraph((Application::PATH_IMAGE + "title.png").c_str());
 }
 
-// 更新処理
-// 入力を受け取ってメニュー選択を操作
-// 決定キーでシーンを切り替える
 void TitleScene::Update(void)
 {
     auto& input = InputManager::GetInstance();
 
     // ↑キーで選択を上に移動
     if (input.IsTrgDown(KEY_INPUT_UP)) {
-        selectNum_ = (selectNum_ - 1 + 3) % 3;  // 0→2にループするように
+        selectNum_ = (selectNum_ - 1 + MENU_COUNT) % MENU_COUNT;
     }
 
     // ↓キーで選択を下に移動
     if (input.IsTrgDown(KEY_INPUT_DOWN)) {
-        selectNum_ = (selectNum_ + 1) % 3;      // 2→0にループするように
+        selectNum_ = (selectNum_ + 1) % MENU_COUNT;
     }
 
     // Spaceキーで決定
     if (input.IsTrgDown(KEY_INPUT_SPACE)) {
         if (selectNum_ == 0) {
-            // ゲーム開始 → GameSceneへ遷移
             SceneManager::GetInstance().ChangeScene(SceneManager::SCENE_ID::GAME);
         }
         else if (selectNum_ == 1) {
-            // オプション → OptionSceneへ遷移
             SceneManager::GetInstance().ChangeScene(SceneManager::SCENE_ID::OPTION);
         }
         else if (selectNum_ == 2) {
-            // 終了 → DxLibを終了
-            DxLib_End();
+            DxLib_End(); // 終了
         }
     }
 }
 
-// 描画処理
-// - タイトル画像を中央に表示
-// - メニューをリスト表示し、選択中は色を変える
 void TitleScene::Draw(void)
 {
     // タイトル画像を中央に描画
     if (titleImg_ != -1) {
         int w, h;
         GetGraphSize(titleImg_, &w, &h);
-        DrawGraph((Application::SCREEN_SIZE_X - w) / 2,   // 横中央に配置
-            100,                                   // 上からの位置
-            titleImg_, TRUE);
+        DrawGraph((Application::SCREEN_SIZE_X - w) / 2, TITLE_Y, titleImg_, TRUE);
     }
 
     // メニュー文字列
-    const char* menuStr[] = { "START GAME", "OPTION", "EXIT" };
+    const char* menuStr[MENU_COUNT] = { "START GAME", "OPTION", "EXIT" };
 
     // 各メニューを縦に並べて描画
-    for (int i = 0; i < 3; i++) {
-        // 選択中は赤、それ以外は白
-        int color = (i == selectNum_) ? GetColor(255, 0, 0) : GetColor(255, 255, 255);
+    for (int i = 0; i < MENU_COUNT; i++) {
+        int color = (i == selectNum_)
+            ? GetColor(SELECT_COLOR_R, SELECT_COLOR_G, SELECT_COLOR_B)
+            : GetColor(MENU_COLOR_R, MENU_COLOR_G, MENU_COLOR_B);
 
-        // 画面の下の方に並べる
-        DrawString(250, 400 + i * 40, menuStr[i], color);
+        DrawString(MENU_X, MENU_Y_START + i * MENU_Y_STEP, menuStr[i], color);
     }
 }
 
-// 解放処理
-// - 読み込んだ画像を削除
 void TitleScene::Release(void)
 {
     if (titleImg_ != -1) {

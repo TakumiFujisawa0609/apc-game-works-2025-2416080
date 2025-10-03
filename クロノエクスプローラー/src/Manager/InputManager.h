@@ -92,6 +92,9 @@ public:
 	// キーを離した時の判定
 	bool IsTrgUp(int key) const;
 
+	// 押し続けている間
+	bool IsPress(int key) const;    
+
 	// マウス座標の取得
 	Vector2 GetMousePos(void) const;
 

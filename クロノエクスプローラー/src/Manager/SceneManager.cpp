@@ -3,6 +3,8 @@
 #include "../Common/Fader.h"
 #include "../Scene/TitleScene.h"
 #include "../Scene/GameScene.h"
+#include "../Scene/OptionScene.h"
+#include "../Scene/PauseScene.h"
 #include "SceneManager.h"
 
 SceneManager* SceneManager::instance_ = nullptr;
@@ -210,6 +212,15 @@ void SceneManager::DoChangeScene(SCENE_ID sceneId)
 		break;
 	case SCENE_ID::GAME:
 		scene_ = new GameScene();
+		break;
+	case SCENE_ID::RESULT:
+		//scene_ = new ResultScene();
+		break;
+	case SCENE_ID::OPTION:
+		scene_ = new OptionScene();
+		break;
+	case SCENE_ID::PAUSE:
+		scene_ = new PauseScene();
 		break;
 	}
 

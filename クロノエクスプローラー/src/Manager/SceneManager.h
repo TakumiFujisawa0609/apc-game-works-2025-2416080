@@ -17,7 +17,8 @@ public:
 		TITLE,
 		GAME,
 		RESULT,
-		OPTION
+		OPTION,
+		PAUSE
 	};
 
 	// インスタンスの生成
