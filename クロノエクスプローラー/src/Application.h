@@ -4,7 +4,6 @@
 class Application
 {
 public:
-    // スクリーンサイズ（マジックナンバー削除）
     static constexpr int SCREEN_SIZE_X = 1280;
     static constexpr int SCREEN_SIZE_Y = 720;   // 640 → 720 に統一（一般的な16:9解像度）
 
