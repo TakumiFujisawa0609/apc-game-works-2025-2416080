@@ -5,86 +5,91 @@ using System.Collections;
 
 public class SceneFader : MonoBehaviour
 {
+    public static SceneFader Instance;
+
+    [Header("フェード設定")]
     public Image fadeImage;
-    public float fadeDuration = 1f;
-    private static SceneFader instance;
-    private bool isFirstScene = true;
+    public float fadeSpeed = 1.5f;
+
+    private bool isFading = false;
+    private bool firstLoad = true; // ← ★追加：初回起動判定
 
     private void Awake()
     {
-        // シングルトン（重複しないように）
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
+            transform.SetParent(null);
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
             Destroy(gameObject);
-            return;
         }
+    }
 
-        // フェードイメージ初期化
+    private void Start()
+    {
+        // 起動時は黒で覆わない
         if (fadeImage != null)
         {
-            Color c = fadeImage.color;
-            // ? 起動時（TitleScene）は最初から透明にする
-            c.a = 0f;
-            fadeImage.color = c;
+            fadeImage.color = new Color(0, 0, 0, 0);
         }
     }
 
-    public void FadeToScene(string sceneName)
+    public void FadeOut(string sceneName)
     {
-        StartCoroutine(FadeOut(sceneName));
+        if (!isFading && fadeImage != null)
+        {
+            StartCoroutine(FadeOutCoroutine(sceneName));
+        }
     }
 
-    private IEnumerator FadeOut(string sceneName)
+    private IEnumerator FadeOutCoroutine(string sceneName)
     {
-        float t = 0f;
-        Color c = fadeImage.color;
-        fadeImage.raycastTarget = true;
+        isFading = true;
+        Color color = fadeImage.color;
 
-        while (t < fadeDuration)
+        while (color.a < 1f)
         {
-            t += Time.deltaTime;
-            c.a = Mathf.Clamp01(t / fadeDuration);
-            fadeImage.color = c;
+            color.a += Time.unscaledDeltaTime * fadeSpeed;
+            fadeImage.color = color;
             yield return null;
         }
 
         SceneManager.LoadScene(sceneName);
-
-        // ? フェード用オブジェクトを削除（残らないようにする）
-        Destroy(gameObject);
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // ? TitleSceneではフェードインしない
-        if (isFirstScene)
-        {
-            isFirstScene = false;
-            return;
-        }
-
-        // ? 2回目以降（GameSceneなど）ではフェードイン
-        StartCoroutine(FadeIn());
+        isFading = false;
     }
 
     private IEnumerator FadeIn()
     {
-        float t = fadeDuration;
-        Color c = fadeImage.color;
-        fadeImage.raycastTarget = false;
+        isFading = true;
+        Color color = fadeImage.color;
 
-        while (t > 0f)
+        while (color.a > 0f)
         {
-            t -= Time.deltaTime;
-            c.a = Mathf.Clamp01(t / fadeDuration);
-            fadeImage.color = c;
+            color.a -= Time.unscaledDeltaTime * fadeSpeed;
+            fadeImage.color = color;
             yield return null;
+        }
+
+        isFading = false;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // ?? 初回ロード（起動時）はフェードしない
+        if (firstLoad)
+        {
+            firstLoad = false;
+            return;
+        }
+
+        if (fadeImage != null)
+        {
+            fadeImage.color = Color.black;
+            StartCoroutine(FadeIn());
         }
     }
 }

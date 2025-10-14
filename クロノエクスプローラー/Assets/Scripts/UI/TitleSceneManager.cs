@@ -64,7 +64,7 @@ public class TitleSceneManager : MonoBehaviour
         SceneFader fader = FindObjectOfType<SceneFader>();
         if (fader != null)
         {
-            fader.FadeToScene("GameScene");
+            fader.FadeOut("GameScene");
         }
         else
         {

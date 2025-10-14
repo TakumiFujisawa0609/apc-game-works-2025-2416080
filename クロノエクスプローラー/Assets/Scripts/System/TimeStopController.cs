@@ -4,67 +4,134 @@ using System.Collections;
 
 public class TimeStopController : MonoBehaviour
 {
+    [Header("キー設定")]
+    public KeyCode timeStopKey = KeyCode.T;
+
+    [Header("視覚演出")]
+    [SerializeField] private Image overlayImage;
+    [Range(0f, 1f)] public float darkAlpha = 0.75f;
+    public float fadeSpeed = 3f;
+
     [Header("時間停止設定")]
-    public KeyCode timeStopKey = KeyCode.J;
-    public float stopDuration = 3f;
-    public float cooldown = 2f;
+    public float stopDuration = 4f;     // 停止時間
+    public float cooldownTime = 5f;     // クールタイム
+    public static bool isStopped = false;
+    public static bool isOnCooldown = false;
 
-    [Header("フェード設定")]
-    public Image overlayImage;       // ← TimeStopOverlayを割り当て
-    public float fadeSpeed = 3f;     // 暗転速度
-    public float targetAlpha = 0.5f; // 暗くする度合い（0.0?1.0）
+    [Header("UI設定")]
+    [SerializeField] private Slider timeGauge;
+    private float currentTime = 0f;
 
-    private bool isTimeStopped = false;
-    private bool isOnCooldown = false;
+    private float targetAlpha = 0f;
+    private Color overlayColor;
+    private Coroutine timeRoutine;
+
+    void Start()
+    {
+        if (overlayImage != null)
+        {
+            overlayColor = overlayImage.color;
+            overlayColor.a = 0f;
+            overlayImage.color = overlayColor;
+        }
+
+        if (timeGauge != null)
+        {
+            timeGauge.maxValue = stopDuration;
+            timeGauge.value = stopDuration;
+        }
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(timeStopKey) && !isTimeStopped && !isOnCooldown)
+        // ?? 入力受付
+        if (Input.GetKeyDown(timeStopKey))
         {
-            StartCoroutine(TimeStopRoutine());
+            if (!isStopped && !isOnCooldown)
+            {
+                StartTimeStop();
+            }
+            else if (isStopped)
+            {
+                StopTimeStop();
+            }
         }
+
+        // ?? フェード制御
+        if (overlayImage != null)
+        {
+            overlayColor.a = Mathf.Lerp(overlayColor.a, targetAlpha, Time.unscaledDeltaTime * fadeSpeed);
+            overlayImage.color = overlayColor;
+        }
+
+        // ?? ゲージ制御
+        if (timeGauge != null)
+        {
+            if (isStopped)
+            {
+                timeGauge.value = Mathf.Max(0, stopDuration - currentTime);
+            }
+            else if (isOnCooldown)
+            {
+                // クールタイム中は灰色にしておく
+                timeGauge.value = 0;
+            }
+            else
+            {
+                // 使用可能時は満タンに戻す
+                timeGauge.value = Mathf.Lerp(timeGauge.value, stopDuration, Time.unscaledDeltaTime * 2f);
+            }
+        }
+    }
+
+    private void StartTimeStop()
+    {
+        isStopped = true;
+        targetAlpha = darkAlpha;
+        currentTime = 0f;
+
+        if (timeRoutine != null)
+            StopCoroutine(timeRoutine);
+        timeRoutine = StartCoroutine(TimeStopRoutine());
+    }
+
+    private void StopTimeStop()
+    {
+        isStopped = false;
+        targetAlpha = 0f;
+
+        if (timeRoutine != null)
+            StopCoroutine(timeRoutine);
+        timeRoutine = StartCoroutine(CooldownRoutine());
     }
 
     private IEnumerator TimeStopRoutine()
     {
-        isTimeStopped = true;
-
-        // フェードで画面を暗くする
-        StartCoroutine(FadeOverlay(targetAlpha));
-
-        // 時間停止
-        Time.timeScale = 0f;
-        Debug.Log("? 時間停止");
-
-        // 停止時間（現実時間でカウント）
-        yield return new WaitForSecondsRealtime(stopDuration);
-
-        // フェードを戻す
-        StartCoroutine(FadeOverlay(0f));
-
-        // 再開
-        Time.timeScale = 1f;
-        Debug.Log("? 時間再開");
-
-        isTimeStopped = false;
-        isOnCooldown = true;
-
-        yield return new WaitForSecondsRealtime(cooldown);
-        isOnCooldown = false;
-    }
-
-    private IEnumerator FadeOverlay(float target)
-    {
-        if (overlayImage == null) yield break;
-
-        Color c = overlayImage.color;
-        float start = c.a;
-
-        while (Mathf.Abs(c.a - target) > 0.01f)
+        // 停止時間経過
+        while (currentTime < stopDuration)
         {
-            c.a = Mathf.MoveTowards(c.a, target, fadeSpeed * Time.unscaledDeltaTime);
-            overlayImage.color = c;
+            currentTime += Time.unscaledDeltaTime;
             yield return null;
         }
+
+        // 自動解除
+        if (isStopped)
+            StopTimeStop();
+    }
+
+    private IEnumerator CooldownRoutine()
+    {
+        isOnCooldown = true;
+        float t = 0f;
+
+        // クールタイム中の経過
+        while (t < cooldownTime)
+        {
+            t += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        isOnCooldown = false;
+        timeRoutine = null;
     }
 }
