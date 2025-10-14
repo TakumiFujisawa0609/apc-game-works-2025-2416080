@@ -61,7 +61,15 @@ public class TitleSceneManager : MonoBehaviour
 
     void StartGame()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneFader fader = FindObjectOfType<SceneFader>();
+        if (fader != null)
+        {
+            fader.FadeToScene("GameScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("GameScene"); // フォールバック
+        }
     }
 
     void QuitGame()
