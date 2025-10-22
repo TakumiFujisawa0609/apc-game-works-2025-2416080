@@ -879,7 +879,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1303731132}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c05c69ba78c8d994b8ad15d78e9321f3, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1129,7 +1129,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458591380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.03, y: 0.07, z: 0}
+  m_LocalPosition: {x: -6.56, y: -1.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1849,6 +1849,7 @@ GameObject:
   - component: {fileID: 2106593637}
   - component: {fileID: 2106593636}
   - component: {fileID: 2106593635}
+  - component: {fileID: 2106593640}
   m_Layer: 0
   m_Name: GroundTilemap
   m_TagString: Ground
@@ -1935,7 +1936,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c05c69ba78c8d994b8ad15d78e9321f3, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -2257,6 +2258,21 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &2106593640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106593633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240d3d579da6e544a82f8ce7d4d32f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0
+  dashSpeed: 0
+  jumpPower: 0
 --- !u!1 &2144302914
 GameObject:
   m_ObjectHideFlags: 0
