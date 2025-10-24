@@ -4,17 +4,23 @@ public class MoveFloor : MonoBehaviour
 {
     [Header("移動設定")]
     public Vector2 moveDirection = Vector2.right; // 移動方向
-    public float moveRange = 3f;                  // 移動距離
-    public float moveSpeed = 2f;                  // 移動速度
+    public float moveRange;                  // 移動距離
+    public float moveSpeed;                  // 移動速度
 
     private Vector3 startPos;
     private Vector3 dir3;
     private int dirSign = 1;
     private float traveled = 0f;
 
+    // PlayerController側で参照できるように公開（前フレームとの移動差分）
+    public Vector3 DeltaMovement { get; private set; }
+
+    private Vector3 lastPosition;
+
     void Start()
     {
         startPos = transform.position;
+        lastPosition = startPos;
         dir3 = new Vector3(moveDirection.x, moveDirection.y, 0f).normalized;
 
         // Rigidbody2DがあるならKinematicに固定
@@ -27,6 +33,10 @@ public class MoveFloor : MonoBehaviour
     {
         if (TimeStopController.isStopped) return;
 
+        // 前フレーム位置を記録
+        lastPosition = transform.position;
+
+        // 移動処理
         transform.Translate(dir3 * moveSpeed * Time.deltaTime * dirSign);
 
         traveled = Vector3.Dot(transform.position - startPos, dir3);
@@ -36,24 +46,27 @@ public class MoveFloor : MonoBehaviour
             transform.position = startPos + dir3 * clamped;
             dirSign *= -1;
         }
+        // 今フレームの移動差分を記録（Playerが追従に使う）
+        DeltaMovement = transform.position - lastPosition;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.CompareTag("Player"))
-            return;
-
-        // 接触点ごとにチェック
-        foreach (ContactPoint2D contact in collision.contacts)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            // 上方向からの接触のみ
-            if (Vector2.Dot(contact.normal, Vector2.up) > 0.6f)
+
+            // 接触点ごとにチェック
+            foreach (ContactPoint2D contact in collision.contacts)
             {
-                // プレイヤーの位置が床より上にあるか
-                if (collision.transform.position.y > transform.position.y + 0.05f)
+                // 上方向からの接触のみ
+                if (Vector2.Dot(contact.normal, Vector2.up) > 0.6f)
                 {
-                    collision.transform.SetParent(transform);
-                    return;
+                    // プレイヤーの位置が床より上にあるか
+                    if (collision.transform.position.y > transform.position.y + 0.05f)
+                    {
+                        collision.transform.SetParent(transform);
+                        return;
+                    }
                 }
             }
         }

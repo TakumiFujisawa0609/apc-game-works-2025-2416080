@@ -3,12 +3,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed;    // 通常移動速度
-    public float dashSpeed;    // ダッシュ速度
-    public float jumpPower;    // ジャンプ力
+    [Header("移動設定")]
+    public float moveSpeed;
+    public float dashSpeed;
+    public float jumpPower;
 
     private Rigidbody2D rb;
-    private bool isGrounded;
+    private bool isGrounded = false;
 
     void Start()
     {
@@ -17,16 +18,22 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // ?? 水平入力（時間停止中でも動けるように unscaledDeltaTime は不要）
+        HandleMovement();
+        HandleJump();
+    }
+
+    private void HandleMovement()
+    {
         float move = Input.GetAxisRaw("Horizontal");
         float speed = Input.GetKey(KeyCode.LeftShift) ? dashSpeed : moveSpeed;
 
-        // ?? 水平方向の速度だけ更新
         Vector2 velocity = rb.velocity;
         velocity.x = move * speed;
         rb.velocity = velocity;
+    }
 
-        // ?? Space でジャンプ（地面にいる時のみ）
+    private void HandleJump()
+    {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
@@ -34,42 +41,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("Ground"))
-        {
-            foreach (var contact in col.contacts)
-            {
-                // ? 壁張り付き防止：接触角度が下方向（ほぼ真下）だけ有効にする
-                if (contact.normal.y > 0.7f)
-                {
-                    isGrounded = true;
-                    return;
-                }
-            }
-        }
-    }
-
+    // -------------------------------------------------------------
+    // 接地判定：横方向の当たりを除外する改良版
+    // -------------------------------------------------------------
     void OnCollisionStay2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Ground"))
+        if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("MoveFloor"))
         {
             bool grounded = false;
 
             foreach (var contact in col.contacts)
             {
-                // ? 接触面が下方向（地面）なら接地中
-                if (contact.normal.y > 0.7f)
+                // 接触角度が下向き（真下から0.85以上）なら接地
+                if (contact.normal.y > 0.85f)
                 {
                     grounded = true;
-                }
-
-                // ? 横方向に押しつけている場合は、X方向の速度を少し減らす
-                if (Mathf.Abs(contact.normal.x) > 0.7f)
-                {
-                    Vector2 v = rb.velocity;
-                    v.x *= 0.5f; // ← 壁に押しつけたときの粘りを減らす
-                    rb.velocity = v;
+                    break;
                 }
             }
 
@@ -79,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Ground"))
+        if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("MoveFloor"))
         {
             isGrounded = false;
         }
