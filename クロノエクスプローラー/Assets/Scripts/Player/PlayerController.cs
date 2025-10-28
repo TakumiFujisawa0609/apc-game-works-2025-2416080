@@ -24,8 +24,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        float move = Input.GetAxisRaw("Horizontal");
-        float speed = Input.GetKey(KeyCode.LeftShift) ? dashSpeed : moveSpeed;
+        float move = Input.GetAxis("Horizontal");
+        float speed = Input.GetButton("Fire3") ? dashSpeed : moveSpeed;
 
         Vector2 velocity = rb.velocity;
         velocity.x = move * speed;
@@ -34,11 +34,14 @@ public class PlayerController : MonoBehaviour
 
     private void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            isGrounded = false;
-        }
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Jump"))
+            if (isGrounded)
+            {
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+                    isGrounded = false;
+                }
+            }
     }
 
     // -------------------------------------------------------------

@@ -10,7 +10,7 @@ public class PlayerFallDetector : MonoBehaviour
     {
         if (transform.position.y < fallThresholdY)
         {
-            SceneManager.LoadScene("GameOverScene");
+            SceneFader.Instance.FadeOut("GameOverScene");
         }
     }
 }
