@@ -1,67 +1,81 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
-/// <summary>
-/// ƒvƒŒƒCƒ„[‚ª“Š‚°‚½ƒiƒCƒt‚Ì“®‚«
-/// ŠÔ’â~’†‚Í‚»‚Ìê‚Å~‚Ü‚é
-/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class KnifeProjectile : MonoBehaviour
 {
-    public float lifeTime = 5f;     // ‰½•b‚Å©“®Á–Å‚·‚é‚©
-    public int damage = 1;          // “G‚É—^‚¦‚éƒ_ƒ[ƒWi‚ ‚Æ‚ÅŠg’£j
+    [Header("å¯¿å‘½")]
+    public float lifeTime = 5f;        // ä¿é™ºã§ã®å¯¿å‘½
+    public float maxDistance = 10f;    // ã“ã®è·é›¢ã‚’è¶…ãˆãŸã‚‰æ¶ˆã™ï¼ˆæ™‚é–“åœæ­¢ã‚’æŒŸã‚“ã§ã‚‚ä½ç½®ã§æ¶ˆãˆã‚‹ï¼‰
+
+    [Header("æ”»æ’ƒ")]
+    public float damage = 0.5f;        // â† ã“ã“ã‚’0.5ã«ã™ã‚‹
 
     private Rigidbody2D rb;
     private float currentLife = 0f;
-
-    // ’â~‘O‚Ì‘¬“x‚ğŠo‚¦‚Ä‚¨‚­‚½‚ß‚Ì•Ï”
+    private Vector3 startPos;
     private Vector2 savedVelocity;
-    private bool inited = false;
+    private bool initialized = false;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0f;
     }
 
-    /// <summary>
-    /// ”­Ë‚ÉŒÄ‚Ô‰Šú‰»
-    /// </summary>
     public void Init(float dir, float speed)
     {
-        // ‰EŒü‚«‚È‚ç³A¶Œü‚«‚È‚ç•‰‚Ì‘¬“x‚ğ—^‚¦‚é
+        rb.isKinematic = false;
         rb.velocity = new Vector2(dir * speed, 0f);
-        inited = true;
+        initialized = true;
+
+        startPos = transform.position;
+
+        // å‘ãåˆã‚ã›
+        if (dir < 0f)
+        {
+            var s = transform.localScale;
+            s.x = -Mathf.Abs(s.x);
+            transform.localScale = s;
+        }
     }
 
     void Update()
     {
-        // ¶‘¶ŠÔ‚Å©“®Á–Å
-        currentLife += Time.deltaTime;
-        if (currentLife >= lifeTime)
+        // æ™‚é–“ãŒå‹•ã„ã¦ã‚‹ã¨ãã ã‘æ™‚é–“å¯¿å‘½ã‚’é€²ã‚ã‚‹
+        if (!TimeStopController.isStopped)
         {
-            Destroy(gameObject);
+            currentLife += Time.deltaTime;
+            if (currentLife >= lifeTime)
+            {
+                Destroy(gameObject);
+                return;
+            }
         }
 
-        // © ‚±‚±‚Å‚Í“®‚©‚³‚È‚¢BÀÛ‚Ì’â~/ÄŠJ‚ÍFixedUpdate‚Å‚â‚é
+        // è·é›¢ãƒ™ãƒ¼ã‚¹ã®å¯¿å‘½
+        float dist = Vector3.Distance(startPos, transform.position);
+        if (dist >= maxDistance)
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     void FixedUpdate()
     {
-        if (!inited) return;
+        if (!initialized) return;
 
-        // ?? ŠÔ’â~’† ¨ ¡‚Ì‘¬“x‚ğ•Û‘¶‚µ‚Ä‚¨‚¢‚Ä~‚ß‚é
         if (TimeStopController.isStopped)
         {
-            // ˆê“x‚¾‚¯•Û‘¶‚·‚é‚æ‚¤‚É‚µ‚Ä•s—v‚È‘ã“ü‚ğ–h‚®
             if (rb.velocity != Vector2.zero)
             {
                 savedVelocity = rb.velocity;
             }
             rb.velocity = Vector2.zero;
-            rb.isKinematic = true;  // •¨—‚ğ~‚ß‚Ä‚¨‚­‚ÆˆÀ’è‚·‚é
+            rb.isKinematic = true;
         }
         else
         {
-            // ?? ŠÔ‚ª“®‚«o‚µ‚½‚çA•Û‘¶‚µ‚Ä‚¢‚½‘¬“x‚ÅÄŠJ
             if (rb.isKinematic)
             {
                 rb.isKinematic = false;
@@ -72,12 +86,16 @@ public class KnifeProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // “G‚É“–‚½‚Á‚½‚çÁ‚·
         if (other.CompareTag("Enemy"))
         {
-            // ‚±‚±‚Å“G‚Éƒ_ƒ[ƒW‚ğ‘—‚é‚Ì‚à‰Â
+            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
             Destroy(gameObject);
         }
-        // •Ç‚Æ‚©‚É‚à“–‚½‚Á‚½‚çÁ‚µ‚½‚¢‚È‚ç‚±‚±‚ÉğŒ‚ğ’Ç‰Á
+
+        // å£ã¨ã‹ã«å½“ãŸã£ãŸã‚‰æ¶ˆã—ãŸã„ãªã‚‰ã“ã“ã«è¿½åŠ 
     }
 }

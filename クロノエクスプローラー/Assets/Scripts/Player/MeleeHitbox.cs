@@ -1,18 +1,25 @@
 using UnityEngine;
 
 /// <summary>
-/// 近接攻撃の当たり判定側につける
+/// 近接攻撃の当たり判定側につけるスクリプト
+/// Triggerに入ってきたEnemyにダメージを送る
 /// </summary>
 public class MeleeHitbox : MonoBehaviour
 {
+    public int damage = 1;   // 今回は1固定でOK
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // 敵に当たったら
+        // Enemyタグのオブジェクトに当たったか？
         if (other.CompareTag("Enemy"))
         {
-            // ここで敵のHPを減らす処理を呼ぶ想定
-            // 今回はとりあえず消すだけ
-            Destroy(other.gameObject);
+            // EnemyHealthを持ってるか調べる
+            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                // ダメージを与える
+                enemy.TakeDamage(damage);
+            }
         }
     }
 }
