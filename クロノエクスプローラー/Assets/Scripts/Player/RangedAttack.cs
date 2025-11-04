@@ -113,8 +113,42 @@ public class RangedAttack : MonoBehaviour
         }
     }
 
-    // UIで使う用
+    // RangedAttack.cs のクラス末尾に追記
+    // ====== UI / 他スクリ用 Getter ======
     public int GetCurrentKnives() => currentKnives;
-    public bool IsEmptyReload() => isEmptyReload;
-    public float GetEmptyReloadProgress() => emptyReloadTimer / emptyReloadTime;
+    public int GetMaxKnives() => maxKnives;
+
+    public bool IsEmptyReload() => isEmptyReload;              // 0本ロック中？
+    public bool CanShoot() => !isEmptyReload && currentKnives > 0;
+
+    public float GetNormalRefillTime() => normalRefillTime;      // 3s
+    public float GetEmptyReloadTime() => emptyReloadTime;       // 12s
+
+    // 進捗（0→1）
+    public float GetNormalRefillProgress()
+    {
+        // 1～2本のときだけ進む。満タン/ロック中は0
+        if (isEmptyReload || currentKnives >= maxKnives) return 0f;
+        return Mathf.Clamp01(normalRefillTimer / normalRefillTime);
+    }
+
+    public float GetEmptyReloadProgress()
+    {
+        // ロック中だけ進む。通常時は0
+        if (!isEmptyReload) return 0f;
+        return Mathf.Clamp01(emptyReloadTimer / emptyReloadTime);
+    }
+
+    // 残り時間（秒）
+    public float GetNormalRefillRemaining()
+    {
+        if (isEmptyReload || currentKnives >= maxKnives) return 0f;
+        return Mathf.Max(0f, normalRefillTime - normalRefillTimer);
+    }
+
+    public float GetEmptyReloadRemaining()
+    {
+        if (!isEmptyReload) return 0f;
+        return Mathf.Max(0f, emptyReloadTime - emptyReloadTimer);
+    }
 }

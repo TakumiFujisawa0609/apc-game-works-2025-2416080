@@ -1,63 +1,88 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[DisallowMultipleComponent]
+[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class KnifeProjectile : MonoBehaviour
 {
-    [Header("寿命")]
-    public float lifeTime = 5f;        // 保険での寿命
-    public float maxDistance = 10f;    // この距離を超えたら消す（時間停止を挟んでも位置で消える）
+    [Header("// 寿命（距離＋保険の時間）")]
+    public float lifeTime = 5f;
+    public float maxDistance = 10f;
 
-    [Header("攻撃")]
-    public float damage = 0.5f;        // ← ここを0.5にする
+    [Header("// 攻撃")]
+    public float damage = 0.5f;
 
-    private Rigidbody2D rb;
-    private float currentLife = 0f;
-    private Vector3 startPos;
-    private Vector2 savedVelocity;
-    private bool initialized = false;
+    [Header("// デバッグ/堅牢化")]
+    public bool maintainSpeed = true;    // // 他スクリプトが速度0にしても上書き維持
+    public bool logSpawnState = true;    // // 生成直後の状態を数フレーム可視化
+
+    Rigidbody2D rb;
+    Vector3 startPos;
+    Vector2 savedVelocity;
+    float lifeTimer;
+    bool initialized;
+    int logFrames = 8;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 0f;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        rb.sleepMode = RigidbodySleepMode2D.NeverSleep;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        var col = GetComponent<Collider2D>();
+        col.isTrigger = true; // // 物理衝突で止まらないように
     }
 
+    void OnEnable()
+    {
+        // // 生成直後に外部から触られていても初期状態を強制
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
+        rb.simulated = true;
+        rb.gravityScale = 0f;
+        rb.velocity = Vector2.zero;
+    }
+
+    // dir: +1/-1, speed: 初速
     public void Init(float dir, float speed)
     {
-        rb.isKinematic = false;
-        rb.velocity = new Vector2(dir * speed, 0f);
+        startPos = transform.position;
+        savedVelocity = new Vector2(dir * speed, 0f);
+        rb.velocity = savedVelocity;
+        rb.gravityScale = 0f;
         initialized = true;
 
-        startPos = transform.position;
-
-        // 向き合わせ
         if (dir < 0f)
         {
-            var s = transform.localScale;
-            s.x = -Mathf.Abs(s.x);
-            transform.localScale = s;
+            var s = transform.localScale; s.x = -Mathf.Abs(s.x); transform.localScale = s;
+        }
+
+        if (TimeStopController.isStopped)
+        {
+            rb.simulated = false; // // 時止め中は完全停止
         }
     }
 
     void Update()
     {
-        // 時間が動いてるときだけ時間寿命を進める
+        // // 外部から誤って変えられても無効化
+        if (rb.gravityScale != 0f) rb.gravityScale = 0f;
+
         if (!TimeStopController.isStopped)
         {
-            currentLife += Time.deltaTime;
-            if (currentLife >= lifeTime)
-            {
-                Destroy(gameObject);
-                return;
-            }
+            lifeTimer += Time.deltaTime;
+            if (lifeTimer >= lifeTime) { Destroy(gameObject); return; }
         }
 
-        // 距離ベースの寿命
-        float dist = Vector3.Distance(startPos, transform.position);
-        if (dist >= maxDistance)
+        if (Vector3.Distance(startPos, transform.position) >= maxDistance)
+        { Destroy(gameObject); return; }
+
+        // 生成直後の状態ログ（原因特定用）
+        if (logSpawnState && logFrames-- > 0)
         {
-            Destroy(gameObject);
-            return;
+            Debug.Log($"[Knife] t={Time.time:F3} vel={rb.velocity} g={rb.gravityScale} sim={rb.simulated} kin?={rb.IsSleeping()}");
         }
     }
 
@@ -67,35 +92,30 @@ public class KnifeProjectile : MonoBehaviour
 
         if (TimeStopController.isStopped)
         {
-            if (rb.velocity != Vector2.zero)
-            {
-                savedVelocity = rb.velocity;
-            }
+            if (rb.simulated && rb.velocity != Vector2.zero) savedVelocity = rb.velocity;
             rb.velocity = Vector2.zero;
-            rb.isKinematic = true;
+            rb.simulated = false;
         }
         else
         {
-            if (rb.isKinematic)
+            if (!rb.simulated) { rb.simulated = true; }
+
+            // === ここが“即効パッチ” ===
+            // 何かに0にされても、常に発射速度を維持する
+            if (maintainSpeed && rb.velocity.sqrMagnitude < (savedVelocity.sqrMagnitude * 0.99f))
             {
-                rb.isKinematic = false;
                 rb.velocity = savedVelocity;
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && !TimeStopController.isStopped)
         {
-            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(damage);
-            }
+            var eh = other.GetComponent<EnemyHealth>();
+            if (eh) eh.TakeDamage(damage);
             Destroy(gameObject);
         }
-
-        // 壁とかに当たったら消したいならここに追加
     }
 }

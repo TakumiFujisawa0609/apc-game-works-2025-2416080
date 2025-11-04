@@ -40,16 +40,6 @@ public class PlayerAttack : MonoBehaviour
             rangedAttack.Shoot();
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Debug.Log("Melee pressed!");
-            meleeAttack?.DoMelee();
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            rangedAttack?.Shoot();
-        }
 
     }
 }

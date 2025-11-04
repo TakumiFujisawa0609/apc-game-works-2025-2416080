@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3849411958675727731}
   - component: {fileID: 3038174556859912628}
   - component: {fileID: 8078873407514457474}
-  - component: {fileID: 2048862572863863279}
+  - component: {fileID: 8818847944433008564}
   m_Layer: 0
   m_Name: KnifeProjectile
   m_TagString: Untagged
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2048862572863863279
+--- !u!114 &8818847944433008564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,8 +143,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4901998449985044710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b150d315e5ba9af4ca1c0a5db21ae43e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dab72c2c70553e47bfdea254481bc31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 5
-  damage: 1
+  maxDistance: 10
+  damage: 0.5
