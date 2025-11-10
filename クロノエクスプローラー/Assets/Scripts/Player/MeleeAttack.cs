@@ -44,6 +44,9 @@ public class MeleeAttack : MonoBehaviour
         isAttacking = true;
         timer = 0f;
 
+        // Ç±Ç±Ç≈êUÇËâπÅi2DÅj
+        SfxPlayer.Play2D(SfxKey.MeleeSwing);
+
         if (hitbox != null)
         {
             hitbox.SetActive(true);

@@ -91,6 +91,8 @@ public class RangedAttack : MonoBehaviour
         // 1本消費する
         currentKnives--;
 
+        SfxPlayer.Play2D(SfxKey.KnifeThrow);
+
         // ナイフを生成して発射する
         GameObject knifeObj = Instantiate(knifePrefab, firePoint.position, Quaternion.identity);
 
