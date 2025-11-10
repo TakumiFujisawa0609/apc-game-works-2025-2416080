@@ -973,6 +973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  singleHitSfxPerSwing: 1
 --- !u!61 &591329785
 BoxCollider2D:
   m_ObjectHideFlags: 0
