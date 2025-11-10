@@ -1,92 +1,65 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
-/// 敵キャラクター（左右往復移動 + 時間停止対応）
+/// 敵：左右往復移動（時間停止対応）
+/// 「プレイヤーに触れたら PlayerDeath.Die() を呼ぶ」だけを担当
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class Enemy : MonoBehaviour
 {
     [Header("移動設定")]
-    public float moveSpeed;        // 移動速度
-    public float moveDistance;     // 移動距離（左右往復範囲）
+    public float moveSpeed = 1.5f;     // 移動速度
+    public float moveDistance = 3f;    // 往復距離
 
-    private Vector3 startPos;           // 初期位置
-    private int moveDir = 1;            // 1=右, -1=左
-    private Rigidbody2D rb;
-    private bool isDead = false;         // 死亡フラグ（将来の拡張用）
+    Rigidbody2D rb;
+    Vector3 pivotPos;
+    int moveDir = 1;                   // 1=右, -1=左
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0;            // 落下しない敵なら0に
-        rb.freezeRotation = true;       // 回転固定
-        startPos = transform.position;
+        rb.gravityScale = 0f;
+        rb.freezeRotation = true;
+        pivotPos = transform.position;
     }
 
     void Update()
     {
-        // ? 時間停止中は動かない
-        if (isDead || TimeStopController.isStopped)
+        if (TimeStopController.isStopped)
         {
             rb.velocity = Vector2.zero;
             return;
         }
 
-        // 左右移動処理
+        // 左右移動
         rb.velocity = new Vector2(moveDir * moveSpeed, 0f);
 
-        // 移動範囲チェック（範囲超えたら方向反転）
-        if (Vector2.Distance(transform.position, startPos) >= moveDistance)
+        // 範囲到達で反転
+        if (Vector2.Distance(transform.position, pivotPos) >= moveDistance)
         {
             moveDir *= -1;
-            startPos = transform.position;
-            Flip(); // 向きを変える（SpriteRenderer用）
+            pivotPos = transform.position;
+            FlipVisual();
         }
     }
 
-    // -------------------------------------------------------------
-    // 向きを反転させる（見た目）
-    // -------------------------------------------------------------
-    void Flip()
+    void FlipVisual()
     {
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        var s = transform.localScale;
+        s.x *= -1f;
+        transform.localScale = s;
     }
 
-    // -------------------------------------------------------------
-    // プレイヤー接触処理（GameOverに遷移）
-    // -------------------------------------------------------------
-    void OnCollisionEnter2D(Collision2D col)
+    // ---- プレイヤー接触で死亡依頼 ----
+    void OnCollisionEnter2D(Collision2D c) { TryKillPlayer(c.collider); }
+    void OnTriggerEnter2D(Collider2D c) { TryKillPlayer(c); }
+
+    void TryKillPlayer(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Player") && TimeStopController.isStopped == false)
-        {
-            isDead = true;
+        if (TimeStopController.isStopped) return;      // 時止め中は無効（仕様）
+        if (!col || !col.CompareTag("Player")) return;
 
-            Time.timeScale = 0f;
-
-            // ここでGameOverシーンへ遷移
-            StartCoroutine(WaitAndFadeOut());
-        }
-    }
-
-    private IEnumerator WaitAndFadeOut()
-    {
-        // Time.timeScale = 0 の状態でも動作するように unscaledDeltaTime 使用
-        float timer = 0f;
-        while (timer < 0.5f)
-        {
-            timer += Time.unscaledDeltaTime;
-            yield return null;
-        }
-
-        // フェードアウト開始（GameOverSceneへ）
-        SceneFader.Instance.FadeOut("GameOverScene");
-
-        // 時間を戻しておく（シーン遷移後に正常化）
-        Time.timeScale = 1f;
+        var death = col.GetComponent<PlayerDeath>();
+        if (death != null) death.Die();
     }
 }
-

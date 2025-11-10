@@ -224,7 +224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58131701}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -241,7 +241,7 @@ Animator:
   m_GameObject: {fileID: 58131701}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c2a5b7097b0fe44394328c0bdb9252e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1060,7 +1060,7 @@ Transform:
   m_GameObject: {fileID: 591329782}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
   m_LocalPosition: {x: 0.83, y: 0.01, z: -0.060332917}
-  m_LocalScale: {x: 1.163174, y: -1.1489887, z: 1}
+  m_LocalScale: {x: 1.7, y: -1.1489887, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1532995896}
@@ -1960,6 +1960,8 @@ GameObject:
   - component: {fileID: 1532995901}
   - component: {fileID: 1532995900}
   - component: {fileID: 1532995899}
+  - component: {fileID: 1532995902}
+  - component: {fileID: 1532995903}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1982,6 +1984,8 @@ MonoBehaviour:
   moveSpeed: 3
   dashSpeed: 6
   jumpPower: 12
+  anim: {fileID: 0}
+  playerVisual: {fileID: 0}
 --- !u!61 &1532995893
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1989,7 +1993,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532995891}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2036,7 +2040,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532995891}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2090,7 +2094,7 @@ Transform:
   m_GameObject: {fileID: 1532995891}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.5335, y: -2.47, z: 0}
-  m_LocalScale: {x: 0.85971665, y: -0.8703305, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 591329783}
@@ -2158,7 +2162,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitbox: {fileID: 591329782}
+  playerVisual: {fileID: 0}
+  player: {fileID: 0}
+  attackTrigger: Attack1
   activeTime: 0.15
+  rightOffset: {x: 0.48, y: 0}
+  leftOffset: {x: -0.48, y: 0}
+  attackCooldown: 0.2
 --- !u!114 &1532995901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2173,6 +2183,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleeAttack: {fileID: 1532995900}
   rangedAttack: {fileID: 1532995899}
+--- !u!114 &1532995902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532995891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f5b742a5846fb46bd898371b1cb54d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visual: {fileID: 58131702}
+  animator: {fileID: 58131703}
+  rb: {fileID: 1532995894}
+  onPlatform: {fileID: 0}
+  runBool: Run
+  groundedBool: Grounded
+  attackTrig: Attack
+  throwTrig: 
+  jumpTrig: Jump
+  rollTrig: Roll
+  runThreshold: 0.05
+  faceFlipThreshold: 0.01
+--- !u!70 &1532995903
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532995891}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
 --- !u!1 &1577833852
 GameObject:
   m_ObjectHideFlags: 0
@@ -3407,6 +3457,8 @@ MonoBehaviour:
   moveSpeed: 0
   dashSpeed: 0
   jumpPower: 0
+  anim: {fileID: 0}
+  playerVisual: {fileID: 0}
 --- !u!1 &2144302914
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,10 +10,17 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isGrounded = false;
+    private SpriteRenderer sr;
+
+    // PlayerController.cs で一度だけ取得（PlayerVisual の Animator）
+    [SerializeField] Animator anim;
+    [SerializeField] Transform playerVisual;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.freezeRotation = true;              // 念のため
+        transform.localScale = Vector3.one;    // ルートは常に(1,1,1)
     }
 
     void Update()
@@ -27,42 +34,29 @@ public class PlayerController : MonoBehaviour
         float move = Input.GetAxis("Horizontal");
         float speed = Input.GetButton("Fire3") ? dashSpeed : moveSpeed;
 
-        Vector2 velocity = rb.velocity;
-        velocity.x = move * speed;
-        rb.velocity = velocity;
+        Vector2 v = rb.velocity;
+        v.x = move * speed;
+        rb.velocity = v;
     }
 
     private void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Jump"))
-            if (isGrounded)
-            {
-                {
-                    rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-                    isGrounded = false;
-                }
-            }
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump")) && isGrounded)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            anim.SetTrigger("Jump");
+            isGrounded = false;
+        }
     }
 
-    // -------------------------------------------------------------
-    // 接地判定：横方向の当たりを除外する改良版
-    // -------------------------------------------------------------
+    // --- 接地判定（そのまま） ---
     void OnCollisionStay2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("MoveFloor"))
         {
             bool grounded = false;
-
-            foreach (var contact in col.contacts)
-            {
-                // 接触角度が下向き（真下から0.85以上）なら接地
-                if (contact.normal.y > 0.85f)
-                {
-                    grounded = true;
-                    break;
-                }
-            }
-
+            foreach (var c in col.contacts)
+                if (c.normal.y > 0.85f) { grounded = true; break; }
             isGrounded = grounded;
         }
     }
@@ -70,8 +64,23 @@ public class PlayerController : MonoBehaviour
     void OnCollisionExit2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("MoveFloor"))
-        {
             isGrounded = false;
-        }
     }
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        if (!playerVisual) playerVisual = transform.Find("PlayerVisual");
+        if (playerVisual) anim = playerVisual.GetComponent<Animator>();
+    }
+
+    public float GetFacingDir()
+    {
+        // SpriteRenderer.flipX で判定（flipX=true なら左向き）
+        if (sr) return sr.flipX ? -1f : 1f;
+        // フォールバック：ルートのscaleで判定（使っていなければ常に1）
+        return transform.localScale.x >= 0f ? 1f : -1f;
+
+    }
+
 }

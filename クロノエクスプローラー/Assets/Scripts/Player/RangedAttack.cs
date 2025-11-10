@@ -84,6 +84,8 @@ public class RangedAttack : MonoBehaviour
         // 0本モード中は撃てない
         if (isEmptyReload) return;
 
+        GetComponent<PlayerAnimDriver>()?.TriggerThrow();
+
         // そもそも弾がないときも撃てない
         if (currentKnives <= 0) return;
         if (knifePrefab == null || firePoint == null) return;
