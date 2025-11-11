@@ -61,6 +61,16 @@ MonoBehaviour:
   lockImage: {fileID: 3930025006150416485}
   normalColor: {r: 0, g: 1, b: 0.85, a: 0.9}
   lockColor: {r: 0.6, g: 0.6, b: 0.6, a: 0.9}
+  lockPulseBaseScale: 1
+  lockPulseAmplitude: 0.08
+  lockPulseSpeed: 1.2
+  enableUnlockFlash: 1
+  unlockFlashDuration: 0.2
+  unlockIconPop: 0.12
+  enableCountPop: 1
+  countPopScale: 0.18
+  countPopUpDuration: 0.08
+  countPopDownDuration: 0.12
 --- !u!1 &1255767044000087644
 GameObject:
   m_ObjectHideFlags: 0

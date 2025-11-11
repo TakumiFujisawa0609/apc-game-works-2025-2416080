@@ -13,7 +13,7 @@ public class PlayerAttack : MonoBehaviour
     {
         // ※キーはとりあえずこうしておきます。あとで好きなキーに変えてOK
         // Kキー：近接攻撃
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.JoystickButton3) || Input.GetKeyDown(KeyCode.K))
         {
             if (meleeAttack != null)
             {
@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
         }
 
         // Lキー：遠距離攻撃（ナイフ投げ）
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.L))
         {
             if (rangedAttack != null)
             {
@@ -30,15 +30,15 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        // コントローラー対応（A,Bはジャンプに使ってるっぽいのでX/Y想定）
-        if (Input.GetButtonDown("Fire1") && meleeAttack != null)
-        {
-            meleeAttack.DoMelee();
-        }
-        if (Input.GetButtonDown("Fire2") && rangedAttack != null)
-        {
-            rangedAttack.Shoot();
-        }
+        //// コントローラー対応（A,Bはジャンプに使ってるっぽいのでX/Y想定）
+        //if (Input.GetButtonDown("Fire1") && meleeAttack != null)
+        //{
+        //    meleeAttack.DoMelee();
+        //}
+        //if (Input.GetButtonDown("Fire2") && rangedAttack != null)
+        //{
+        //    rangedAttack.Shoot();
+        //}
 
 
     }

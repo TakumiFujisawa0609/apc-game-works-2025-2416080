@@ -7,6 +7,7 @@ public class TimeCrystal : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.AddCrystal();
+            SfxPlayer.Play2D(SfxKey.TimeCrystalPickup);
             Destroy(gameObject); // æ“¾‚µ‚½‚çÁ‚¦‚é
         }
     }

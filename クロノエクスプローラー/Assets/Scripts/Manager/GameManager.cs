@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     /// <summary>
     /// Œ‹»‚ğ1‚Âæ“¾
     /// </summary>

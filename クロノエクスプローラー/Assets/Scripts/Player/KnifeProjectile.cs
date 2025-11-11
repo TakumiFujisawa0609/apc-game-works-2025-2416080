@@ -115,6 +115,7 @@ public class KnifeProjectile : MonoBehaviour
         {
             var eh = other.GetComponent<EnemyHealth>();
             if (eh) eh.TakeDamage(damage);
+            SfxPlayer.Play2D(SfxKey.KnifeHit);
             Destroy(gameObject);
         }
     }

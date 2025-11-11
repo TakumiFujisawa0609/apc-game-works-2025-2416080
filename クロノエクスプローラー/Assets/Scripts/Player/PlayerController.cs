@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour
     public float dashSpeed;
     public float jumpPower;
 
+    [Header("入力（ダッシュ")]
+    public KeyCode dashKey = KeyCode.LeftShift;             // キーボード
+    public KeyCode padDashKey = KeyCode.JoystickButton5;    // RB
+
     private Rigidbody2D rb;
     private bool isGrounded = false;
     private SpriteRenderer sr;
@@ -31,8 +35,10 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        float move = Input.GetAxis("Horizontal");
-        float speed = Input.GetButton("Fire3") ? dashSpeed : moveSpeed;
+        float move = Input.GetAxisRaw("Horizontal");
+        bool isDash = Input.GetKey(dashKey) || Input.GetKey(padDashKey);
+
+        float speed = isDash ? dashSpeed : moveSpeed;
 
         Vector2 v = rb.velocity;
         v.x = move * speed;
@@ -41,10 +47,11 @@ public class PlayerController : MonoBehaviour
 
     private void HandleJump()
     {
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump")) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.Space) || GamepadInput.RTDown()) && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             anim.SetTrigger("Jump");
+            SfxPlayer.Play2D(SfxKey.Jump);
             isGrounded = false;
         }
     }

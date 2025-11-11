@@ -25,17 +25,13 @@ public class MeleeHitbox : MonoBehaviour
     {
         if (!other.CompareTag("Enemy")) return;
 
+        SfxPlayer.Play2D(SfxKey.MeleeHit);
+
         var enemy = other.GetComponent<EnemyHealth>();
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
 
-            // 命中SE：位置付き。多段ヒットで鳴り過ぎるなら singleHitSfxPerSwing をONに
-            if (!singleHitSfxPerSwing || !playedThisSwing)
-            {
-                SfxPlayer.PlayAt(SfxKey.MeleeHit, other.bounds.center);
-                playedThisSwing = true;
-            }
         }
     }
 }

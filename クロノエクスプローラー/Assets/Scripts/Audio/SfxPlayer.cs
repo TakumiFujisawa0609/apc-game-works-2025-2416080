@@ -1,70 +1,96 @@
 using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.Audio;
 
 public class SfxPlayer : MonoBehaviour
 {
-    public static SfxPlayer I { get; private set; }
+    public static SfxPlayer Instance { get; private set; }
 
     [Header("参照")]
     public SfxLibrary library;
-    public AudioMixerGroup mixerGroup;     // 任意（未設定でもOK）
+    public AudioMixerGroup mixerGroup;
 
     [Header("同時発音プール")]
-    [SerializeField] int poolSize = 8;
+    [Min(1)] public int poolSize = 8;
 
-    readonly List<AudioSource> pool = new();
-    int idx;
+    AudioSource[] pool;
+    int next;
 
     void Awake()
     {
-        if (I != null && I != this) { Destroy(gameObject); return; }
-        I = this;
-        DontDestroyOnLoad(gameObject);
+        if (Instance && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
 
+        // AudioSource プール生成
+        pool = new AudioSource[poolSize];
         for (int i = 0; i < poolSize; i++)
         {
-            var go = new GameObject($"SFX_{i}");
-            go.transform.SetParent(transform);
+            var go = new GameObject($"SFX_Source_{i}");
+            go.transform.SetParent(transform, false);
             var src = go.AddComponent<AudioSource>();
             src.playOnAwake = false;
-            src.spatialBlend = 0f;              // デフォは2D
-            src.outputAudioMixerGroup = mixerGroup;
-            pool.Add(src);
+            src.loop = false;
+            src.spatialBlend = 0f;               // 2D
+            src.volume = 1f;
+            src.pitch = 1f;
+            if (mixerGroup) src.outputAudioMixerGroup = mixerGroup;
+            pool[i] = src;
+        }
+
+        // 基本の安全チェック
+        if (!Camera.main || !Camera.main.GetComponent<AudioListener>())
+        {
+            if (!FindObjectOfType<AudioListener>())
+            {
+                Debug.LogWarning("[SfxPlayer] AudioListener が見つかりません。Main Camera に AudioListener を追加してください。");
+            }
         }
     }
 
-    AudioSource Next() { idx = (idx + 1) % pool.Count; return pool[idx]; }
-
-    // === 2D再生（画面内どこでも同じ音量） ===
-    public static void Play2D(SfxKey key, float volumeMul = 1f)
+    AudioSource GetSource()
     {
-        if (I == null || I.library == null) return;
-        if (!I.library.TryGet(key, out var e) || e.clip == null) return;
+        var s = pool[next];
+        next = (next + 1) % pool.Length;
+        return s;
+    }
 
-        var src = I.Next();
-        src.spatialBlend = 0f;
-        src.pitch = 1f + Random.Range(-e.pitchJitter, e.pitchJitter);
-        src.volume = e.volume * Mathf.Clamp01(volumeMul);
+    // ====== API ======
+    public static void Play2D(SfxKey key)
+    {
+        if (!Instance) { Debug.LogWarning("[SfxPlayer] Instance がありません。SFX オブジェクトに SfxPlayer を置いてください。"); return; }
+        if (!Instance.library) { Debug.LogWarning("[SfxPlayer] Library が未割り当てです。"); return; }
+
+        if (!Instance.library.TryGet(key, out var ent) || !ent.clip)
+        {
+            Debug.LogWarning($"[SfxPlayer] ライブラリに {key} が無いか、Clip が未設定です。");
+            return;
+        }
+
+        var src = Instance.GetSource();
+        src.clip = ent.clip;
+        src.volume = ent.volume;
+        src.pitch = 1f + Random.Range(-ent.pitchJitter, ent.pitchJitter);
+        src.spatialBlend = 0f;  // 2D
         src.transform.position = Vector3.zero;
-        src.clip = e.clip;
         src.Play();
     }
 
-    // === 3D再生（位置つき。2Dゲームでも近接だけ位置付けしたい時に） ===
-    public static void PlayAt(SfxKey key, Vector3 worldPos, float volumeMul = 1f)
+    public static void PlayAt(SfxKey key, Vector3 worldPos)
     {
-        if (I == null || I.library == null) return;
-        if (!I.library.TryGet(key, out var e) || e.clip == null) return;
+        if (!Instance) { Debug.LogWarning("[SfxPlayer] Instance がありません。"); return; }
+        if (!Instance.library) { Debug.LogWarning("[SfxPlayer] Library が未割り当てです。"); return; }
 
-        var src = I.Next();
-        src.spatialBlend = 1f;
-        src.rolloffMode = AudioRolloffMode.Linear;
-        src.minDistance = 2f; src.maxDistance = 25f;
-        src.pitch = 1f + Random.Range(-e.pitchJitter, e.pitchJitter);
-        src.volume = e.volume * Mathf.Clamp01(volumeMul);
+        if (!Instance.library.TryGet(key, out var ent) || !ent.clip)
+        {
+            Debug.LogWarning($"[SfxPlayer] ライブラリに {key} が無いか、Clip が未設定です。");
+            return;
+        }
+
+        var src = Instance.GetSource();
+        src.clip = ent.clip;
+        src.volume = ent.volume;
+        src.pitch = 1f + Random.Range(-ent.pitchJitter, ent.pitchJitter);
+        src.spatialBlend = 0f;      // 2D として鳴らす（3Dにしたいなら 1 に）
         src.transform.position = worldPos;
-        src.clip = e.clip;
         src.Play();
     }
 }

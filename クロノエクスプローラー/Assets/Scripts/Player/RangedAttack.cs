@@ -45,6 +45,7 @@ public class RangedAttack : MonoBehaviour
                 isEmptyReload = false;
                 emptyReloadTimer = 0f;
                 normalRefillTimer = 0f; // 通常回復のほうもリセットしておく
+                SfxPlayer.Play2D(SfxKey.KnifeRecharge);
             }
 
             // 0本モードのときはここで終了（通常回復はしない）
@@ -59,6 +60,8 @@ public class RangedAttack : MonoBehaviour
 
             if (normalRefillTimer >= normalRefillTime)
             {
+                SfxPlayer.Play2D(SfxKey.KnifeRecharge);
+                // 3秒たったので1本回復
                 currentKnives++;
                 normalRefillTimer = 0f;
 
@@ -87,7 +90,12 @@ public class RangedAttack : MonoBehaviour
         GetComponent<PlayerAnimDriver>()?.TriggerThrow();
 
         // そもそも弾がないときも撃てない
-        if (currentKnives <= 0) return;
+        if (currentKnives <= 0)
+        {
+            SfxPlayer.Play2D(SfxKey.KnifeLocked);
+            return;
+        }
+
         if (knifePrefab == null || firePoint == null) return;
 
         // 1本消費する

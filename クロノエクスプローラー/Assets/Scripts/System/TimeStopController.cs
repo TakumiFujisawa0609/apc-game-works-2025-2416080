@@ -44,8 +44,8 @@ public class TimeStopController : MonoBehaviour
 
     void Update()
     {
-        // ?? “ü—ÍŽó•t
-        if (Input.GetKeyDown(timeStopKey))
+        // “ü—ÍŽó•t
+        if (Input.GetKeyDown(KeyCode.JoystickButton4) || Input.GetKeyDown(timeStopKey))
         {
             if (!isStopped && !isOnCooldown)
             {
