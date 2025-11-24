@@ -45,3 +45,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b9f03e7743d0cde4883a08f575072227, type: 3}
     volume: 0.8
     pitchJitter: 0.02
+  - key: 9
+    clip: {fileID: 8300000, guid: 9f2fd6a63919096449fb5ad0e16624fd, type: 3}
+    volume: 0.8
+    pitchJitter: 0.02
