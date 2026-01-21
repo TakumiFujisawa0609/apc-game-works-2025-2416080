@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TimeStopController : MonoBehaviour
 {
     [Header("キー設定")]
-    public KeyCode timeStopKey = KeyCode.T;
+    public KeyCode timeStopKey;
 
     [Header("視覚演出")]
     [SerializeField] private Image overlayImage;
@@ -28,10 +28,10 @@ public class TimeStopController : MonoBehaviour
     private Color overlayColor;
     private Coroutine timeRoutine;
 
-    // ===== 追加: シーン跨ぎで確実に初期化するためのシングルトン参照 =====
+    // シーン跨ぎで確実に初期化するためのシングルトン参照
     private static TimeStopController _instance;
 
-    // ===== 追加: どこからでも初期化できる静的API =====
+    //  どこからでも初期化できる静的API
     /// <summary>時止めの状態/演出/UIを即リセット（シーン遷移時用）</summary>
     public static void ForceClearStatic()
     {
@@ -43,21 +43,21 @@ public class TimeStopController : MonoBehaviour
 
     void Awake()
     {
-        _instance = this;                     // // 目的：静的クリアがUIにも届くように
-        // // 目的：プレイ中のシーン再読み込み直後に必ずクリーン状態に
+        _instance = this;  //静的クリアがUIにも届くように
+        //プレイ中のシーン再読み込み直後に必ずクリーン状態に
         ForceClearStatic();
     }
 
     void OnEnable()
     {
-        // // 目的：どんなロード経路でもロード後に必ず初期化されるように
+        //どんなロード経路でもロード後に必ず初期化されるように
         SceneManager.sceneLoaded += OnSceneLoaded_Reset;
     }
 
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded_Reset;
-        // // 目的：オブジェクト破棄時も状態持ち越しを防止
+        //オブジェクト破棄時も状態持ち越しを防止
         ForceClearStatic();
     }
 
@@ -171,7 +171,7 @@ public class TimeStopController : MonoBehaviour
         timeRoutine = null;
     }
 
-    // ===== 追加: 見た目＆内部状態を即初期化する実体処理 =====
+    //見た目＆内部状態を即初期化する実体処理
     private void ClearImmediate()
     {
         // 内部状態

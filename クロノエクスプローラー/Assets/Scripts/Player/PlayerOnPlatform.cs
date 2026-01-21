@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 public class PlayerOnPlatform : MonoBehaviour
 {
-    public bool IsGrounded { get; private set; }  // ★ 追加
+    public bool IsGrounded { get; private set; }
 
     private Transform originalParent;
 
@@ -25,7 +25,7 @@ public class PlayerOnPlatform : MonoBehaviour
             transform.SetParent(other.transform);
         }
 
-        // ★ 上向きの接触（足元）なら接地ON
+        // 上向きの接触なら接地
         if (IsGroundTag(other.gameObject) && HasUpwardContact(other))
             IsGrounded = true;
     }
@@ -43,7 +43,7 @@ public class PlayerOnPlatform : MonoBehaviour
             transform.SetParent(originalParent);
         }
 
-        // ★ 離れたら一旦OFF（複数接地がある場合は必要に応じて接地数カウントでも可）
+        // 離れたら一旦OFF
         if (IsGroundTag(other.gameObject))
             IsGrounded = false;
     }
@@ -54,7 +54,7 @@ public class PlayerOnPlatform : MonoBehaviour
         return false;
     }
 
-    // 法線が上向きの接触点があるか（足元だけを接地とみなす）
+    // 法線が上向きの接触点があるか
     bool HasUpwardContact(Collision2D col)
     {
         foreach (var cp in col.contacts)
