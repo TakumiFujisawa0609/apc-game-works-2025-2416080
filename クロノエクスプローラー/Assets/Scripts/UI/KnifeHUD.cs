@@ -17,7 +17,6 @@ public class KnifeHUD : MonoBehaviour
     public Color normalColor = new Color(0f, 1f, 0.85f, 0.9f);
     public Color lockColor = new Color(0.6f, 0.6f, 0.6f, 0.9f);
 
-    // ==== 追加: ロック中パルス設定 ====
     [Header("// Lock Pulse")]
     [Tooltip("ロック中の拡大縮小の中心倍率")]
     public float lockPulseBaseScale = 1.0f;
@@ -26,7 +25,6 @@ public class KnifeHUD : MonoBehaviour
     [Tooltip("1秒あたりの鼓動速度")]
     public float lockPulseSpeed = 1.2f;
 
-    // ==== 追加: 解除フラッシュ設定 ====
     [Header("// Unlock Flash")]
     [Tooltip("ロック解除時にフラッシュさせるか")]
     public bool enableUnlockFlash = true;
@@ -35,7 +33,6 @@ public class KnifeHUD : MonoBehaviour
     [Tooltip("アイコンのポップ倍率（0.1 = 10%拡大）")]
     public float unlockIconPop = 0.12f;
 
-    // ==== 追加: カウントPOP設定 ====
     [Header("// Count Pop")]
     [Tooltip("残弾が増減した瞬間にCountTextをポップ表示")]
     public bool enableCountPop = true;
@@ -47,7 +44,7 @@ public class KnifeHUD : MonoBehaviour
     public float countPopDownDuration = 0.12f;
 
 
-    int prevCount = -1;               // ★ 追加：前フレームの所持数
+    int prevCount = -1;               // 前フレームの所持数
     Vector3 countOriginalScale = Vector3.one;
     Coroutine countPopCo;
     Vector3 lockImageOriginalScale;   // 元のスケールを保持
@@ -72,14 +69,13 @@ public class KnifeHUD : MonoBehaviour
     {
         if (rangedAttack == null) return;
 
-        // --- 残弾表示 & 変更検知 ---
-        int cur = rangedAttack.GetCurrentKnives();     // ★ 現在の本数を取得
+        int cur = rangedAttack.GetCurrentKnives();     // 現在の本数を取得
         if (countText) countText.text = "×" + cur;
 
         if (enableCountPop && prevCount >= 0 && cur != prevCount)
         {
             if (countPopCo != null) StopCoroutine(countPopCo);
-            countPopCo = StartCoroutine(CountPopCo()); // ★ 変更時にポップ
+            countPopCo = StartCoroutine(CountPopCo()); // 変更時にポップ
         }
 
 
@@ -99,7 +95,7 @@ public class KnifeHUD : MonoBehaviour
             if (lockImage)
             {
                 if (!lockImage.activeSelf) lockImage.SetActive(true);
-                // === パルス ===
+
                 float t = Time.unscaledTime * lockPulseSpeed;
                 float s = lockPulseBaseScale + Mathf.Sin(t * Mathf.PI * 2f) * lockPulseAmplitude;
                 lockImage.transform.localScale = lockImageOriginalScale * s;
@@ -117,31 +113,26 @@ public class KnifeHUD : MonoBehaviour
             if (lockImage)
             {
                 if (lockImage.activeSelf) lockImage.SetActive(false);
-                // === 解除時にスケールを元へ ===
+
                 if (wasEmpty) lockImage.transform.localScale = lockImageOriginalScale;
             }
             if (knifeIcon) knifeIcon.color = Color.white;
         }
 
-        // ==== ここで遷移を検知：「直前はEmpty」→「今はEmptyでない」＝解除瞬間 ====
         if (enableUnlockFlash && wasEmpty && !isEmpty)
         {
             if (flashCo != null) StopCoroutine(flashCo);
-            flashCo = StartCoroutine(UnlockFlashCo());   // ★ フラッシュ開始
+            flashCo = StartCoroutine(UnlockFlashCo());   // フラッシュ開始
         }
 
         prevCount = cur; // 最後に更新
         wasEmpty = isEmpty;
     }
-
-    // ==== 追加: 解除フラッシュのコルーチン（unscaledTimeで駆動） ====
     System.Collections.IEnumerator UnlockFlashCo()
     {
-        // 開始時に fill を一瞬だけ満タンにしてから（演出強調用、不要なら削除OK）
         if (cooldownFill) cooldownFill.fillAmount = 1f;
 
         float t = 0f;
-        // 元の色/スケールを保持
         Color fromCol = normalColor;
         Color toCol = Color.white; // 白へフラッシュ
         Vector3 iconFrom = iconOriginalScale;
@@ -150,8 +141,7 @@ public class KnifeHUD : MonoBehaviour
         while (t < unlockFlashDuration)
         {
             float u = t / unlockFlashDuration;
-            // イーズアウト（鋭く光ってすぐ戻る）
-            float k = 1f - (1f - u) * (1f - u); // easeOutQuad
+            float k = 1f - (1f - u) * (1f - u); 
 
             if (cooldownFill)
                 cooldownFill.color = Color.Lerp(fromCol, toCol, k);
@@ -163,17 +153,14 @@ public class KnifeHUD : MonoBehaviour
             yield return null;
         }
 
-        // 戻す
         if (cooldownFill) cooldownFill.color = normalColor;
 
-        // アイコンは少し気持ちよく戻す（短くリラックス）
         float back = unlockFlashDuration * 0.6f;
         t = 0f;
         while (t < back)
         {
             float u = t / back;
-            // イーズイン（ふわっと戻る）
-            float k = u * u; // easeInQuad
+            float k = u * u;
             if (knifeIcon)
                 knifeIcon.transform.localScale = Vector3.Lerp(iconOriginalScale * (1f + unlockIconPop), iconOriginalScale, k);
 
@@ -189,14 +176,12 @@ public class KnifeHUD : MonoBehaviour
         if (countText == null) yield break;
         var rt = countText.rectTransform;
 
-        // Up（鋭く）
         float t = 0f;
         Vector3 from = countOriginalScale;
         Vector3 to = countOriginalScale * (1f + countPopScale);
         while (t < countPopUpDuration)
         {
             float u = t / countPopUpDuration;
-            // easeOutQuad
             float k = 1f - (1f - u) * (1f - u);
             rt.localScale = Vector3.Lerp(from, to, k);
             t += Time.unscaledDeltaTime;
@@ -204,13 +189,11 @@ public class KnifeHUD : MonoBehaviour
         }
         rt.localScale = to;
 
-        // Down（ふわっと戻す）
         t = 0f;
         float down = countPopDownDuration;
         while (t < down)
         {
             float u = t / down;
-            // easeInQuad
             float k = u * u;
             rt.localScale = Vector3.Lerp(to, countOriginalScale, k);
             t += Time.unscaledDeltaTime;

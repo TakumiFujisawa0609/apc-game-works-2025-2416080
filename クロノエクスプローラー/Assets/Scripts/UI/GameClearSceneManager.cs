@@ -33,10 +33,10 @@ public class GameClearSceneManager : MonoBehaviour
 
     private void UpdateSelectorPosition()
     {
-        // ? UI内でのローカル座標を取得
+        // UI内でのローカル座標を取得
         RectTransform target = menuItems[selectedIndex].GetComponent<RectTransform>();
         selector.anchoredPosition = new Vector2(
-            target.anchoredPosition.x - 50f, // ← 距離調整
+            target.anchoredPosition.x - 50f, //  距離調整
             target.anchoredPosition.y
         );
     }
@@ -54,7 +54,7 @@ public class GameClearSceneManager : MonoBehaviour
             case 0: // Retry
                 SceneFader.Instance.FadeOut("GameScene");
                 break;
-            case 1: // Titleへ
+            case 1: // Title
                 SceneFader.Instance.FadeOut("TitleScene");
                 break;
         }

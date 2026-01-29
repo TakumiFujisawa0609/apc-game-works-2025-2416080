@@ -12,7 +12,7 @@ public class SceneFader : MonoBehaviour
     public float fadeSpeed = 1.5f;
 
     private bool isFading = false;
-    private bool firstLoad = true; // ← ★追加：初回起動判定
+    private bool firstLoad = true; // 初回起動判定
 
     private void Awake()
     {
@@ -79,7 +79,7 @@ public class SceneFader : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // ?? 初回ロード（起動時）はフェードしない
+        // 初回起動はフェードしない
         if (firstLoad)
         {
             firstLoad = false;
