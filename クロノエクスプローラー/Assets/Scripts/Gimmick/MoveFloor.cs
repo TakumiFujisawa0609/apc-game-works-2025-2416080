@@ -12,7 +12,6 @@ public class MoveFloor : MonoBehaviour
     private int dirSign = 1;
     private float traveled = 0f;
 
-    // PlayerController側で参照できるように公開（前フレームとの移動差分）
     public Vector3 DeltaMovement { get; private set; }
 
     private Vector3 lastPosition;
@@ -23,7 +22,6 @@ public class MoveFloor : MonoBehaviour
         lastPosition = startPos;
         dir3 = new Vector3(moveDirection.x, moveDirection.y, 0f).normalized;
 
-        // Rigidbody2DがあるならKinematicに固定
         var rb = GetComponent<Rigidbody2D>();
         if (rb != null)
             rb.bodyType = RigidbodyType2D.Kinematic;
@@ -46,7 +44,7 @@ public class MoveFloor : MonoBehaviour
             transform.position = startPos + dir3 * clamped;
             dirSign *= -1;
         }
-        // 今フレームの移動差分を記録（Playerが追従に使う）
+        // 今フレームの移動差分を記録
         DeltaMovement = transform.position - lastPosition;
     }
 

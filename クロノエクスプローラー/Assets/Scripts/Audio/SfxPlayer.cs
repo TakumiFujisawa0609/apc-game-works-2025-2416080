@@ -29,14 +29,13 @@ public class SfxPlayer : MonoBehaviour
             var src = go.AddComponent<AudioSource>();
             src.playOnAwake = false;
             src.loop = false;
-            src.spatialBlend = 0f;               // 2D
+            src.spatialBlend = 0f;               
             src.volume = 1f;
             src.pitch = 1f;
             if (mixerGroup) src.outputAudioMixerGroup = mixerGroup;
             pool[i] = src;
         }
 
-        // 基本の安全チェック
         if (!Camera.main || !Camera.main.GetComponent<AudioListener>())
         {
             if (!FindObjectOfType<AudioListener>())
@@ -53,7 +52,6 @@ public class SfxPlayer : MonoBehaviour
         return s;
     }
 
-    // ====== API ======
     public static void Play2D(SfxKey key)
     {
         if (!Instance) { Debug.LogWarning("[SfxPlayer] Instance がありません。SFX オブジェクトに SfxPlayer を置いてください。"); return; }
@@ -69,7 +67,7 @@ public class SfxPlayer : MonoBehaviour
         src.clip = ent.clip;
         src.volume = ent.volume;
         src.pitch = 1f + Random.Range(-ent.pitchJitter, ent.pitchJitter);
-        src.spatialBlend = 0f;  // 2D
+        src.spatialBlend = 0f; 
         src.transform.position = Vector3.zero;
         src.Play();
     }
@@ -89,7 +87,7 @@ public class SfxPlayer : MonoBehaviour
         src.clip = ent.clip;
         src.volume = ent.volume;
         src.pitch = 1f + Random.Range(-ent.pitchJitter, ent.pitchJitter);
-        src.spatialBlend = 0f;      // 2D として鳴らす（3Dにしたいなら 1 に）
+        src.spatialBlend = 0f;    
         src.transform.position = worldPos;
         src.Play();
     }

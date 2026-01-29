@@ -21,18 +21,12 @@ public class GameManager : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// Œ‹»‚ğ1‚Âæ“¾
-    /// </summary>
     public void AddCrystal()
     {
         crystalCount++;
         Debug.Log($"Crystal Collected! ({crystalCount}/{totalCrystals})");
     }
 
-    /// <summary>
-    /// ‚·‚×‚Ä‚ÌŒ‹»‚ğW‚ß‚½‚©H
-    /// </summary>
     public bool HasAllCrystals()
     {
         return crystalCount >= totalCrystals;

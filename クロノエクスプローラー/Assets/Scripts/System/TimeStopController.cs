@@ -32,7 +32,7 @@ public class TimeStopController : MonoBehaviour
     private static TimeStopController _instance;
 
     //  どこからでも初期化できる静的API
-    /// <summary>時止めの状態/演出/UIを即リセット（シーン遷移時用）</summary>
+    // 時止めの状態/演出/UIを即リセット（シーン遷移時用)
     public static void ForceClearStatic()
     {
         isStopped = false;

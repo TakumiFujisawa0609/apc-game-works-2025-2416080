@@ -9,22 +9,21 @@ public class PlayerController : MonoBehaviour
     public float jumpPower;
 
     [Header("入力（ダッシュ")]
-    public KeyCode dashKey = KeyCode.LeftShift;             // キーボード
-    public KeyCode padDashKey = KeyCode.JoystickButton5;    // RB
+    public KeyCode dashKey = KeyCode.LeftShift;             
+    public KeyCode padDashKey = KeyCode.JoystickButton5;    
 
     private Rigidbody2D rb;
     private bool isGrounded = false;
     private SpriteRenderer sr;
 
-    // PlayerController.cs で一度だけ取得（PlayerVisual の Animator）
     [SerializeField] Animator anim;
     [SerializeField] Transform playerVisual;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.freezeRotation = true;              // 念のため
-        transform.localScale = Vector3.one;    // ルートは常に(1,1,1)
+        rb.freezeRotation = true;             
+        transform.localScale = Vector3.one;   
     }
 
     void Update()
@@ -56,7 +55,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // --- 接地判定（そのまま） ---
     void OnCollisionStay2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("MoveFloor"))
@@ -83,9 +81,8 @@ public class PlayerController : MonoBehaviour
 
     public float GetFacingDir()
     {
-        // SpriteRenderer.flipX で判定（flipX=true なら左向き）
         if (sr) return sr.flipX ? -1f : 1f;
-        // フォールバック：ルートのscaleで判定（使っていなければ常に1）
+
         return transform.localScale.x >= 0f ? 1f : -1f;
 
     }

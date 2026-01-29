@@ -1,11 +1,5 @@
 ﻿using UnityEngine;
 
-/// <summary>
-/// プレイヤーの遠距離攻撃（ナイフ）
-/// ・残りが1～2本のときは3秒ごとに1本ずつ回復
-/// ・残りが0本になったときだけ、12秒間は撃てない
-/// ・12秒経ったら一気に3本に戻る
-/// </summary>
 public class RangedAttack : MonoBehaviour
 {
     [Header("発射設定")]
@@ -32,10 +26,8 @@ public class RangedAttack : MonoBehaviour
 
     void Update()
     {
-        // 0本モード中なら、12秒のカウントだけを進める
         if (isEmptyReload)
         {
-            // 時間停止中でも回復する仕様なのでTime.deltaTimeそのまま
             emptyReloadTimer += Time.deltaTime;
 
             if (emptyReloadTimer >= emptyReloadTime)
@@ -44,16 +36,13 @@ public class RangedAttack : MonoBehaviour
                 currentKnives = maxKnives;
                 isEmptyReload = false;
                 emptyReloadTimer = 0f;
-                normalRefillTimer = 0f; // 通常回復のほうもリセットしておく
+                normalRefillTimer = 0f; 
                 SfxPlayer.Play2D(SfxKey.KnifeRecharge);
             }
 
-            // 0本モードのときはここで終了（通常回復はしない）
             return;
         }
 
-        // ここに来るのは「0本じゃないとき」＝1本以上あるとき
-        // → 普通どおり3秒で1本回復する
         if (currentKnives < maxKnives)
         {
             normalRefillTimer += Time.deltaTime;
@@ -61,11 +50,10 @@ public class RangedAttack : MonoBehaviour
             if (normalRefillTimer >= normalRefillTime)
             {
                 SfxPlayer.Play2D(SfxKey.KnifeRecharge);
-                // 3秒たったので1本回復
+
                 currentKnives++;
                 normalRefillTimer = 0f;
 
-                // 念のため上限を超えないように
                 if (currentKnives > maxKnives)
                 {
                     currentKnives = maxKnives;
@@ -74,22 +62,15 @@ public class RangedAttack : MonoBehaviour
         }
         else
         {
-            // すでに3本あるときはタイマーを進める必要がないのでリセットしておく
             normalRefillTimer = 0f;
         }
     }
-
-    /// <summary>
-    /// PlayerAttack から呼ばれる実際の発射処理
-    /// </summary>
     public void Shoot()
     {
-        // 0本モード中は撃てない
         if (isEmptyReload) return;
 
         GetComponent<PlayerAnimDriver>()?.TriggerThrow();
 
-        // そもそも弾がないときも撃てない
         if (currentKnives <= 0)
         {
             SfxPlayer.Play2D(SfxKey.KnifeLocked);
@@ -106,7 +87,7 @@ public class RangedAttack : MonoBehaviour
         // ナイフを生成して発射する
         GameObject knifeObj = Instantiate(knifePrefab, firePoint.position, Quaternion.identity);
 
-        // プレイヤーの向きに合わせて左右を決める（Xスケールで判断）
+        // プレイヤーの向きに合わせて左右を決める
         float dir = transform.localScale.x >= 0 ? 1f : -1f;
 
         // ナイフのスクリプトに初速を渡す
@@ -121,22 +102,19 @@ public class RangedAttack : MonoBehaviour
         {
             isEmptyReload = true;
             emptyReloadTimer = 0f;
-            normalRefillTimer = 0f;   // 通常の3秒回復タイマーは止める
+            normalRefillTimer = 0f; 
         }
     }
 
-    // RangedAttack.cs のクラス末尾に追記
-    // ====== UI / 他スクリ用 Getter ======
     public int GetCurrentKnives() => currentKnives;
     public int GetMaxKnives() => maxKnives;
 
-    public bool IsEmptyReload() => isEmptyReload;              // 0本ロック中？
+    public bool IsEmptyReload() => isEmptyReload;             
     public bool CanShoot() => !isEmptyReload && currentKnives > 0;
 
     public float GetNormalRefillTime() => normalRefillTime;      // 3s
     public float GetEmptyReloadTime() => emptyReloadTime;       // 12s
 
-    // 進捗（0→1）
     public float GetNormalRefillProgress()
     {
         // 1～2本のときだけ進む。満タン/ロック中は0

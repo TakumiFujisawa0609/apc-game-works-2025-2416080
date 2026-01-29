@@ -1,9 +1,8 @@
-﻿// TimeCrystalFloat.cs  — 結晶をふわふわ＆淡い発光
-using UnityEngine;
+﻿using UnityEngine;
 public class TimeCrystalFloat : MonoBehaviour
 {
     public float bobAmp = 0.05f, bobSpeed = 2.2f;
-    public float glowAmp = 0.15f, glowSpeed = 3.0f; // 色の明滅
+    public float glowAmp = 0.15f, glowSpeed = 3.0f; 
     Vector3 basePos; SpriteRenderer sr; Color baseCol;
 
     void Awake() { basePos = transform.localPosition; sr = GetComponent<SpriteRenderer>(); baseCol = sr ? sr.color : Color.white; }

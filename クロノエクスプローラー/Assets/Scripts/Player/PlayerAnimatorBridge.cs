@@ -1,4 +1,3 @@
-// PlayerAnimatorBridge.cs（要約版）
 using UnityEngine;
 
 public class PlayerAnimatorBridge : MonoBehaviour
@@ -6,7 +5,7 @@ public class PlayerAnimatorBridge : MonoBehaviour
     public Transform visual;    // PlayerVisual
     public Animator animator;   // PlayerVisual の Animator
     public Rigidbody2D rb;      // プレイヤーのRB
-    public PlayerOnPlatform onPlatform; // 既存の地判定があれば参照
+    public PlayerOnPlatform onPlatform; 
 
     void Reset()
     {
@@ -23,10 +22,10 @@ public class PlayerAnimatorBridge : MonoBehaviour
         animator.SetFloat("Speed", speedX);
 
         bool grounded = (onPlatform != null && onPlatform.IsGrounded)
-                        || Mathf.Abs(rb.velocity.y) < 0.01f; // フォールバック
+                        || Mathf.Abs(rb.velocity.y) < 0.01f; 
         animator.SetBool("IsGrounded", grounded);
 
-        // 向き（親のScaleで統一）
+        // 向き
         if (speedX > 0.01f)
         {
             var s = transform.localScale;

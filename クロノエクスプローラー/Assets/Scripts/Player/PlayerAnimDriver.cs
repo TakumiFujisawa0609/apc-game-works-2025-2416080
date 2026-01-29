@@ -6,15 +6,15 @@ public class PlayerAnimDriver : MonoBehaviour
     public Transform visual;      // PlayerVisual
     public Animator animator;     // PlayerVisual.Animator
     public Rigidbody2D rb;
-    public PlayerOnPlatform onPlatform; // あれば
+    public PlayerOnPlatform onPlatform; 
 
     [Header("Animator Parameters (rename here if needed)")]
     public string runBool = "Run";            // 速度でON/OFF
     public string groundedBool = "Grounded";  // 接地
     public string attackTrig = "Attack";      // 近接攻撃
-    public string throwTrig = "";            // 使わなければ空でOK
-    public string jumpTrig = "Jump";        // 任意
-    public string rollTrig = "Roll";        // 任意
+    public string throwTrig = "";            
+    public string jumpTrig = "Jump";        
+    public string rollTrig = "Roll";        
 
     [Header("Tuning")]
     public float runThreshold = 0.05f;        // 走り判定の速度しきい値
@@ -30,8 +30,6 @@ public class PlayerAnimDriver : MonoBehaviour
     void Update()
     {
         if (!animator || !rb) return;
-
-        // 逆さ・回転を強制修正（子の見た目を常に正位置に）
         if (visual)
         {
             if (visual.localRotation != Quaternion.identity) visual.localRotation = Quaternion.identity;
@@ -56,13 +54,11 @@ public class PlayerAnimDriver : MonoBehaviour
         }
     }
 
-    // ---- public API（他スクリプトから呼ぶ用） ----
     public void PlayMelee() { SetTriggerIfExists(attackTrig); }
     public void TriggerThrow() { SetTriggerIfExists(throwTrig); }
     public void TriggerJump() { SetTriggerIfExists(jumpTrig); }
     public void TriggerRoll() { SetTriggerIfExists(rollTrig); }
 
-    // ---- helpers ----
     void SetBoolIfExists(string name, bool v)
     {
         if (string.IsNullOrEmpty(name)) return;

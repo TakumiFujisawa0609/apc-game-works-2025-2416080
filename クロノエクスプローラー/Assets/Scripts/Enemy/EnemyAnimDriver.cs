@@ -1,11 +1,10 @@
-// Assets/Scripts/Enemy/EnemyAnimDriver.cs
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class EnemyAnimDriver : MonoBehaviour
 {
-    public Rigidbody2D rb;        // 親のRigidbody2D（Enemy本体）
-    public Transform visualRoot;  // EnemyVisual（このスクリプトをEnemyVisualに付けるなら不要）
+    public Rigidbody2D rb;       
+    public Transform visualRoot;  
 
     Animator anim;
     bool grounded;

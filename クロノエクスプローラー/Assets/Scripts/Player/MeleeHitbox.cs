@@ -4,7 +4,6 @@ public class MeleeHitbox : MonoBehaviour
 {
     public int damage = 1;
 
-    // 
     public bool singleHitSfxPerSwing = true;
     bool playedThisSwing = false;
 
@@ -12,7 +11,6 @@ public class MeleeHitbox : MonoBehaviour
     {
         playedThisSwing = false;
 
-        //TriggerÇï€èÿ
         var col = GetComponent<Collider2D>();
         if (col) col.isTrigger = true;
     }

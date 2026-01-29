@@ -1,16 +1,12 @@
 using UnityEngine;
 
-/// <summary>
-/// ・移動床に乗っている間は親子付けで追従
-/// ・地面/移動床に接地しているかを IsGrounded で提供
-/// </summary>
 public class PlayerOnPlatform : MonoBehaviour
 {
     public bool IsGrounded { get; private set; }
 
     private Transform originalParent;
 
-    // 接地とみなすタグ（必要に応じて増やす）
+    // 接地とみなすタグ
     [SerializeField] string[] groundTags = { "Ground", "MoveFloor" };
 
     void Start()

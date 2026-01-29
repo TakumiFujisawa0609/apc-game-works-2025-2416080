@@ -1,4 +1,3 @@
-// BgmKey.cs
 public enum BgmKey
 {
     None = 0,

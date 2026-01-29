@@ -1,11 +1,8 @@
 using UnityEngine;
 
-/// <summary>
-/// 敵のHPを管理するクラス（小数ダメージ対応）
-/// </summary>
 public class EnemyHealth : MonoBehaviour
 {
-    public float maxHp = 1f;     // 今回は1でOK（ナイフ0.5を2回で倒れる）
+    public float maxHp = 1f;     
     private float currentHp;
 
     void Start()
@@ -31,7 +28,6 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        // TODO: エフェクトとか
         Destroy(gameObject);
     }
 }

@@ -1,4 +1,3 @@
-// BgmPlayer.cs  （Assets/Scripts/Audio）
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,13 +20,12 @@ public class BgmPlayer : MonoBehaviour
     public List<BgmEntry> clips = new();
 
     [Header("Mixer (任意)")]
-    public AudioMixerGroup musicGroup;     // Music グループがあれば割り当て
-
+    public AudioMixerGroup musicGroup;     
     [Header("Fade")]
     public float defaultFade = 1.5f;
 
-    AudioSource a;     // 現在再生
-    AudioSource b;     // 次曲用（クロスフェード）
+    AudioSource a;    
+    AudioSource b;     
     Dictionary<BgmKey, BgmEntry> table = new();
     BgmKey currentKey = BgmKey.None;
     Coroutine fadeCo;
@@ -51,7 +49,7 @@ public class BgmPlayer : MonoBehaviour
         var s = go.AddComponent<AudioSource>();
         s.playOnAwake = false;
         s.loop = true;
-        s.spatialBlend = 0f; // 2D
+        s.spatialBlend = 0f; 
         s.outputAudioMixerGroup = musicGroup;
         return s;
     }
@@ -82,7 +80,6 @@ public class BgmPlayer : MonoBehaviour
 
     IEnumerator CoCrossFade(BgmEntry next, float dur)
     {
-        // b に次曲を準備
         b.clip = next.clip;
         b.volume = 0f;
         b.Play();
@@ -100,7 +97,6 @@ public class BgmPlayer : MonoBehaviour
             yield return null;
         }
 
-        // スワップ
         a.Stop();
         var tmp = a; a = b; b = tmp;
     }

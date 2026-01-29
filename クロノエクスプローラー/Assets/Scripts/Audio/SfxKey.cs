@@ -1,4 +1,3 @@
-// SfxKey.cs
 public enum SfxKey
 {
     // Player
@@ -12,12 +11,12 @@ public enum SfxKey
 
     // Enemy
     EnemyDeath,
-    EnemyHit,     // 使うなら
+    EnemyHit,     
 
     // System / UI
     TimeStop,
     TimeResume,
-    KnifeRecharge, // 3本復帰
-    KnifeLocked,   // 0本ロック時
+    KnifeRecharge, 
+    KnifeLocked,   
     TimeCrystalPickup,
 }

@@ -7,9 +7,9 @@ public class TitleSceneManager : MonoBehaviour
     [Header("UI References")]
     public TextMeshProUGUI startText;
     public TextMeshProUGUI exitText;
-    public RectTransform selector; // ?マーク用
+    public RectTransform selector; 
 
-    private int selectedIndex = 0; // 0:Start, 1:Exit
+    private int selectedIndex = 0;
 
     void Start()
     {
@@ -68,7 +68,7 @@ public class TitleSceneManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("GameScene"); // フォールバック
+            SceneManager.LoadScene("GameScene"); 
         }
     }
 
